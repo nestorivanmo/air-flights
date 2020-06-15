@@ -1,0 +1,3 @@
+--@Autor(es):       Hector Espino Rojas, Néstor Martínez Ostoa
+--@Fecha creación:  15/06/2020
+--@Descripción:     Script para la definición de roles. 
