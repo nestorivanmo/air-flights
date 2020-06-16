@@ -60,7 +60,6 @@ Lista de entidades completas sobre el caso de estudio:
 	- fecha_impresion default sysdate
 	- asiento varchar2 
 12. MALETA
-	- folio_pase_abordar varchar2 FK
 	- numero number
 	- peso number
 13. STATUS_VUELO

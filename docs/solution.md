@@ -63,7 +63,10 @@
   - apellido_mat
   - num_sala
   - hora_salida
-
+-v_equipaje:
+  - folio_pase
+  - nombre
+  - numero_maleta
 
 
 
