@@ -5,9 +5,9 @@
 whenever sqlerror exit;
 
 --
---Table: AVION
+-- Table: AVION
 --
-prompt creando avion;
+prompt creando tabla avion;
 create table avion(
     id_avion                    numeric(10) not null,
     matricula                   varchar(10) not null,
@@ -15,14 +15,14 @@ create table avion(
     documento_especificaciones  binary(2000) not null,
     es_carga                    numeric(1,0) not null,
     es_comercial                numeric(1,0) not null,
-    
+
     constraint avion_pk primary key(id_avion)
 );
 
 --
---Table: AVION_COMERCIAL
+-- Table: AVION_COMERCIAL
 --
-prompt creando avion_comercial;
+prompt creando tabla avion_comercial;
 create table avion_comercial(
     id_avion                    numeric(10,0) not null,
     num_ordinarios              numeric(3,0) not null,
@@ -35,8 +35,9 @@ create table avion_comercial(
 );
 
 --
---Table: AVION_CARGA
+-- Table: AVION_CARGA
 --
+prompt creando tabla avion_carga;
 create table avion_carga(
     id_avion                    numeric(10,0) not null,
     num_bodegas                 numeric(4,0) not null,
@@ -51,8 +52,9 @@ create table avion_carga(
 );
 
 --
---Table: PASAJERO
+-- Table: PASAJERO
 --
+prompt creando tabla pasajero;
 create table pasajero(
     id_pasajero                 numeric(10,0) not null,
     nombre                      varchar(50) not null,
@@ -66,8 +68,9 @@ create table pasajero(
 );
 
 --
---Table: AEROPUERTO
+-- Table: AEROPUERTO
 --
+prompt creando tabla aeropuerto;
 create table aeropuerto(
     id_aeropuerto               numeric(10,0) not null,
     clave                       varchar(5) not null,
@@ -80,8 +83,9 @@ create table aeropuerto(
 );
 
 --
---Table: PUESTO_ASIGNADO
+-- Table: PUESTO_ASIGNADO
 --
+prompt creando tabla puesto_asignado;
 create table puesto_asignado(
     id_puesto_asignado          numeric(10,0) not null,
     clave                       varchar(50) not null,
@@ -93,8 +97,9 @@ create table puesto_asignado(
 );
 
 --
---Table: EMPLEADO
+-- Table: EMPLEADO
 --
+prompt creando tabla empleado;
 create table empleado(
     id_empleado                 numeric(10,0) not null,
     nombre                      varchar(50) not null,
@@ -115,8 +120,9 @@ create table empleado(
 );
 
 --
---Table: URL_TRAYECTORIA
+-- Table: URL_TRAYECTORIA
 --
+prompt creando tabla url_trayectoria;
 create table url_trayectoria(
     id_url_trayectoria          numeric(10) not null,
     url                         varchar(30) not null,
@@ -128,8 +134,9 @@ create table url_trayectoria(
 );
 
 --
---Table: TIPO_PAQUETE
+-- Table: TIPO_PAQUETE
 --
+prompt creando tabla tipo_paquete;
 create table tipo_paquete(
     id_tipo_paquete             numeric(10,0) not null,
     clave                       varchar(5) not null,
@@ -140,8 +147,9 @@ create table tipo_paquete(
 );
 
 --
---Table: PAQUETE
+-- Table: PAQUETE
 --
+prompt creando tabla paquete;
 create table paquete(
     id_paquete                  numeric(10,0) not null,
     folio                       varchar(18) not null,
@@ -155,8 +163,9 @@ create table paquete(
 );
 
 --
---Table: PASE_ABORDAR
+-- Table: PASE_ABORDAR
 --
+prompt creando tabla pase_abordar;
 create table pase_abordar(
     id_pase_abordar             numeric(10,0) not null,
     folio                       varchar(4) not null,
@@ -170,8 +179,9 @@ create table pase_abordar(
 );
 
 --
---Table: EQUIPAJE
+-- Table: EQUIPAJE
 --
+prompt creando tabla equipaje;
 create table equipaje(
     id_equipaje                 numeric(10,0) not null,
     numero                      numeric(1,0) not null,
@@ -184,8 +194,9 @@ create table equipaje(
 );
 
 --
---Table: STATUS_VUELO
+-- Table: STATUS_VUELO
 --
+prompt creando tabla status_vuelo;
 create table status_vuelo(
     id_status_vuelo             numeric(10,0) not null,
     clave                       varchar(5) not null,
@@ -195,8 +206,9 @@ create table status_vuelo(
 );
 
 --
---Table: VUELO
+-- Table: VUELO
 --
+prompt creando tabla vuelo;
 create table vuelo(
     id_vuelo                    numeric(10,0) not null,
     id_aeropuerto_origen        numeric(10,0) not null,
@@ -222,8 +234,9 @@ create table vuelo(
 );
 
 --
---Table: HISTORICO_STATUS_VUELO
+-- Table: HISTORICO_STATUS_VUELO
 --
+prompt creando tabla historico_status_vuelo;
 create table historico_status_vuelo(
     id_historico_status_vuelo   numeric(10,0) not null,
     fecha                       date not null default sysdate,
@@ -238,8 +251,9 @@ create table historico_status_vuelo(
 );
 
 --
---Table: LISTA_PAQUETES
+-- Table: LISTA_PAQUETES
 --
+prompt creando tabla lista_paquetes;
 create table lista_paquetes(
     id_lista_paquetes           numeric(10,0) not null,
     id_vuelo                    numeric(10,0) not null,
@@ -253,8 +267,9 @@ create table lista_paquetes(
 );
 
 --
---Table: LISTA_PASAJEROS
+-- Table: LISTA_PASAJEROS
 --
+prompt creando tabla lista_pasajeros;
 create table lista_pasajeros(
     id_lista_pasajeros          numeric(10,0) not null,
     id_vuelo                    numeric(10,0) not null,
@@ -270,8 +285,9 @@ create table lista_pasajeros(
 );
 
 --
---Table: TRIPULACION
+-- Table: TRIPULACION
 --
+prompt creando tabla tripulacion;
 create table tripulacion(
     id_tripulacion              numeric(10,0) not null,
     id_vuelo                    numeric(10,0) not null,
@@ -285,8 +301,9 @@ create table tripulacion(
 );
 
 --
---Table: T_UBICACION
+-- Table: T_UBICACION
 --
+prompt creando tabla t_ubicacion;
 create table t_ubicacion(
     id_ubicacion                numeric(10,0) not null,
     latitud                     numeric(10,7) not null,
