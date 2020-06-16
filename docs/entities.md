@@ -33,7 +33,7 @@ Lista de entidades completas sobre el caso de estudio:
 	- nombre varchar2
 	- descripcion varchar2
 	- sueldo_mensual number
-7. DIRECCIONES_TRAYECTORIA
+7. URL_TRAYECTORIA
 	- id_empleado FK
 	- direccion_url varchar2
 8. EMPLEADO
@@ -59,7 +59,7 @@ Lista de entidades completas sobre el caso de estudio:
 	- folio varchar2
 	- fecha_impresion default sysdate
 	- asiento varchar2 
-12. MALETA
+12. EQUIPAJE
 	- numero number
 	- peso number
 13. STATUS_VUELO
@@ -96,7 +96,7 @@ Lista de entidades completas sobre el caso de estudio:
 	- fecha date
 	- hora date
 	+ tiempo_restante date
-20. LISTA_UBICACIONES
+20. T_UBICACION
 	- id_vuelo FK
 	- latitud
 	- longitud
