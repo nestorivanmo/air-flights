@@ -86,7 +86,9 @@ Lista de entidades completas sobre el caso de estudio:
 18. TRIPULACION
 	- id_vuelo FK
 	- id_empleado FK
-
-
-
-
+19. UBICACION_AVION
+	- id_avion FK
+	- latitud number
+	- longitud number
+	- fecha date
+	- hora date
