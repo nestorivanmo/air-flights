@@ -36,7 +36,9 @@
 - Índice compuesto
 - Índices basado en funciones
 
-### Sinónimos
+### Triggers
+- Para insertar la ubicacion a la tabla LISTA_UBICACIONES
+ - Se debe lanzar cada que se vaya a actualizar la tabla UBICACION
 
 ### Vistas
 
