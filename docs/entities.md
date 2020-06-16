@@ -14,6 +14,7 @@ Lista de entidades completas sobre el caso de estudio:
 	- capacidad_carga number
 	- alto number
 	- ancho number
+	+ volumen number
 4. PASAJERO
 	- nombre varchar2
 	- apellido_paterno varchar2
@@ -52,6 +53,7 @@ Lista de entidades completas sobre el caso de estudio:
 10. PAQUETE
 	- folio number(18,0)
 	- peso number
+	+ peso_libras number
 	- id_tipo_paquete FK
 11. PASE_ABORDAR
 	- folio varchar2
@@ -76,6 +78,8 @@ Lista de entidades completas sobre el caso de estudio:
 	- id_avion FK
 	- numero varchar2
 	- sala_abordar varchar2 null
+	+ distancia number
+	+ duracion number
 16. LISTA_PAQUETES
 	- id_vuelo FK
 	- id_paquete FK
@@ -92,3 +96,4 @@ Lista de entidades completas sobre el caso de estudio:
 	- longitud number
 	- fecha date
 	- hora date
+	+ tiempo_restante date
