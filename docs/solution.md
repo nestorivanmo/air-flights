@@ -67,6 +67,12 @@
   - folio_pase
   - nombre
   - numero_maleta
+v_pasajeros:
+  - folio
+  - id_vuelo
+  - id_pase_abordar
+  - pasajero_presente
+  - atención_especial
 
 
 

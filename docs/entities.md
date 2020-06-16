@@ -101,10 +101,5 @@ Lista de entidades completas sobre el caso de estudio:
 	- latitud
 	- longitud
 	- fecha
-	- hor
-20. LISTA_UBICACIONES
-	- id_vuelo FK
-	- latitud
-	- longitud
-	- fecha
 	- hora
+
