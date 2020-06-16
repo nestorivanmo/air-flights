@@ -2,17 +2,24 @@
 --@Fecha creación:  15/06/2020
 --@Descripción:     Código de las tablas del caso de estudio.
 
+--
+--Table: AVION
+--
 prompt creando avion;
 create table avion(
-    id_avion numeric(10) not null
+    id_avion                    numeric(10) not null
     constraint avion_pk primary key,
-    matricula varchar(10) not null,
-    modelo_avion varchar(50) not null,
-    documento_especificaciones binary(2000) not null,
-    es_carga numeric(1,0) not null,
-    es_comercial numeric(1,0) not null
+    matricula                   varchar(10) not null,
+    modelo_avion                varchar(50) not null,
+    documento_especificaciones  binary(2000) not null,
+    es_carga                    numeric(1,0) not null,
+    es_comercial                numeric(1,0) not null
 );
 
+--
+--Table: AVION_COMERCIAL
+--
+prompt creando avion_comercial;
 create table avion_comercial(
     id_avion numeric(10,0) not null
     constraint avion_comercial_pk primary key,
