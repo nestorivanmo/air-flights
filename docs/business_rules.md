@@ -3,7 +3,7 @@
 Algunas reglas de negocio encontradas sobre el caso de estudio: 
 
 1. **AVION_CARGA**: las dimensiones de las bodegas son siempre las mismas por cada avión. 
-2. **PASAJEOR**: el CURP se emplea como criterio principal para validar si un ususario ya ha sido registrado. 
+2. **PASAJERO**: el CURP se emplea como criterio principal para validar si un ususario ya ha sido registrado. 
 3. **AEROPUERTO**: tiene una bandera de activo que indica si la aerolínea tiene convenio con dicho aeropuerto. 
 4. **AVION_COMERCIAL**: la tripulación debe estar conformada por piloto, copiloto, jefe de sobrecargos, tres sobrecargos. 
 5. **AVION_CARGA**: la tripulación debe estar conformada por piloto, dos copilotos y hasta 10 técnicos.
