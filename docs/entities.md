@@ -97,3 +97,15 @@ Lista de entidades completas sobre el caso de estudio:
 	- fecha date
 	- hora date
 	+ tiempo_restante date
+20. LISTA_UBICACIONES
+	- id_vuelo FK
+	- latitud
+	- longitud
+	- fecha
+	- hor
+20. LISTA_UBICACIONES
+	- id_vuelo FK
+	- latitud
+	- longitud
+	- fecha
+	- hora
