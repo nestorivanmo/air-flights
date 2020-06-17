@@ -12,7 +12,7 @@ create table avion(
     id_avion                    number(10)  not null,
     matricula                   varchar2(10) not null,
     modelo_avion                varchar2(50) not null,
-    documento_especificaciones  binary(2000) not null,
+    documento_especificaciones  blob not null,
     es_carga                    number(1,0) not null,
     es_comercial                number(1,0) not null,
     constraint avion_pk primary key(id_avion),
@@ -47,8 +47,8 @@ create table avion_carga(
     alto                        number(3,2) not null,
     ancho                       number(4,2) not null,
     volumen                     number(6,2) as (round(alto*ancho, 2)) virtual,
-    capacidad_libras            number(5,2) as (round(capacidad_carga * 2.2046 
-        * 1000),2) virtual,
+    capacidad_libras            number(5,2) as (round(capacidad_carga * 2.2046 * 1000)
+    ,2)  virtual,
     constraint avion_carga_pk primary key (id_avion),
     constraint avcarga_id_avion_fk foreign key(id_avion) 
     references avion(id_avion)

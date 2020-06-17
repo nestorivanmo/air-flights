@@ -1,0 +1,12 @@
+create table avion(
+    id_avion                    number(10)  not null,
+    matricula                   varchar2(10) not null,
+    modelo_avion                varchar2(50) not null,
+    documento_especificaciones  blob(5M) not null,
+    es_carga                    number(1,0) not null,
+    es_comercial                number(1,0) not null,
+    constraint avion_pk primary key(id_avion),
+    constraint av_matricula_uk unique(matricula)
+)
+
+/

@@ -2,6 +2,7 @@
 --@Fecha creación:  15/06/2020
 --@Descripción:     Escenarios donde se incluyen vistas.
 
+whenever sqlerror exit;
 --
 -- View: v_impresion_equipaje
 --
