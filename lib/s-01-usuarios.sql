@@ -4,7 +4,7 @@
 
 whenever sqlerror exit;
 prompt conectando como sys;
-connect sys;
+connect sys as sysdba;
 
 --
 -- User: em_proy_admin
