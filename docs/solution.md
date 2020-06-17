@@ -37,8 +37,11 @@
 - Índices basado en funciones
 
 ### Triggers
-- Para insertar la ubicacion a la tabla LISTA_UBICACIONES
- - Se debe lanzar cada que se vaya a actualizar la tabla UBICACION
+- Cada que se haga una inserción sobre T_UBICACION, el trigger deberá copiar los datos, antes de actualizarlos, a la tabla LISTA_UBICACIONES
+- Se debe lanzar cada que se vaya a actualizar la tabla UBICACION
+- Para verificar que no se creen pases de abordar si el vuelo està a menos de 10 minutos de despegar.
+- Para verificar la regla de negocio de url_trayectoria sobre la tabla empleado
+- Para verificar que se inserten correctamente la cantidad de tripulantes en la tripulacion; este trigger depende de si el vuelo es comercial o de cargao o ambos.
 
 ### Vistas
 
