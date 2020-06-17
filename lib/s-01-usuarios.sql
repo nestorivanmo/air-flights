@@ -32,7 +32,7 @@ to rol_admin;
 --
 prompt creando rol rol_invitado;
 create role rol_invitado;
-grant create session to rol_invitado;
+grant create session, create synonym to rol_invitado;
 
 --
 -- Asignación de roles
