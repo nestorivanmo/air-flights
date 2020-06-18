@@ -64,5 +64,5 @@ prompt copiando el archivo aeropuerto_ext.csv a /tmp/bases/proyecto-final;
 !cp aeropuerto_ext.csv /tmp/bases/proyecto-final
 
 prompt mostrando datos de aeropuerto_ext;
-col nombre format a20;
+col nombre format a30;
 select * from aeropuerto_ext;
