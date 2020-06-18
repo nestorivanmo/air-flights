@@ -66,7 +66,6 @@ create table pasajero(
     fecha_nacimiento            date not null,
     curp                        varchar2(13) not null,
     constraint pasajero_pk primary key (id_pasajero),
-    constraint pa_curp_uk unique(curp), 
     constraint pa_email_uk unique(email)
 );
 
@@ -180,8 +179,7 @@ create table pase_abordar(
     id_pasajero                 number(10,0) not null,
     constraint pase_abordar_pk primary key(id_pase_abordar),
     constraint pab_id_pasajero_fk foreign key(id_pasajero)
-    references pasajero(id_pasajero),
-    constraint pab_folio_uk unique(folio)
+    references pasajero(id_pasajero)
 );
 
 --
@@ -204,13 +202,13 @@ create table vuelo(
     id_vuelo                    number(10,0) not null,
     id_aeropuerto_origen        number(10,0) not null,
     id_aeropuerto_destino       number(10,0) not null,
-    fecha_salida                date default sysdate not null,
-    fecha_llegada               date not null,
+    fecha_hora_salida                date default sysdate not null,
+    fecha_hora_llegada               date not null,
     numero_vuelo                varchar2(8) not null,
     sala_abordar                varchar2(5) not null,
     duracion                    varchar2(100)
     as (
-        to_char(cast(fecha_llegada as timestamp)-cast(fecha_salida 
+        to_char(cast(fecha_hora_llegada as timestamp)-cast(fecha_hora_salida 
         as timestamp))
     ) virtual,
     id_status_vuelo             number(10,0) not null,

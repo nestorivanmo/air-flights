@@ -50,49 +50,44 @@ connect em_proy_invitado;
 --
 -- Synonym: LISTA_UBICACIONES
 --
-prompt creando diccionario privado para el ususario em_proy_invitado sobre tabla 
-    lista_ubicaciones;
-create or replace private synonym lista_ubicaciones for 
+prompt creando diccionario privado para el ususario em_proy_invitado sobre tablalista_ubicaciones;
+create or replace synonym lista_ubicaciones for 
     em_proy_admin.lista_ubicaciones;
 
 --
 -- Synonym: AVION
 --
-prompt creando diccionario privado para el ususario em_proy_invitado sobre tabla 
-    avion;
-create or replace private synonym avion for em_proy_admin.avion;
+prompt creando diccionario privado para el ususario em_proy_invitado sobre tabla avion;
+create or replace synonym avion for em_proy_admin.avion;
 
 --
 -- Synonym: STATUS_VUELO
 --
-prompt creando diccionario privado para el ususario em_proy_invitado sobre tabla 
-    status_vuelo;
-create or replace private synonym status_vuelo for em_proy_admin.status_vuelo;
+prompt creando diccionario privado para el ususario em_proy_invitado sobre tabla status_vuelo;
+create or replace synonym status_vuelo for em_proy_admin.status_vuelo;
 
 --
 -- Synonym: HISTORICO_STATUS_VUELO
 --
-prompt creando diccionario privado para el ususario em_proy_invitado sobre tabla 
-    historico_status_vuelo;
-create or replace private synonym historico_status_vuelo for
+prompt creando diccionario privado para el ususario em_proy_invitado sobre tabla historico_status_vuelo;
+create or replace  synonym historico_status_vuelo for
     em_proy_admin.historico_status_vuelo;
 
 -----
-prompt conectando como usuario em_proy_admin para sinónimos privados en prefijos
-    de tablas;
+prompt conectando como usuario em_proy_admin para sinónimos privados en prefijos de tablas;
 connect em_proy_admin;
 
 prompt ejecutando bloque anónimo para crear sinónimos privados con prefijos;
 declare
 cursor cur_admin_tables is
     select table_name
-    from user_tables
+    from all_tables
     where owner = 'EM_PROY_ADMIN';
-synonym_name := '';
+synonym_name varchar2(100);
 begin
     for r in cur_admin_tables loop
         synonym_name := 'XX_' || r.table_name;
-        create or replace private synonym synonym_name
+        create or replace  synonym synonym_name
         from em_proy_admin.r.table_name;
     end loop;
 end;

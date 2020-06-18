@@ -12,9 +12,9 @@ create or replace view v_impresion_equipaje(
 ) as select folio,nombre,apellido_paterno,apellido_materno,numero
 from pasajero p
 join equipaje e
-where p.id_pasajero=e.id_equipaje
+on p.id_pasajero = e.id_equipaje
 join pase_abordar pa
-where p.id_pasajero=pa.id_pasajero;
+on p.id_pasajero = pa.id_pasajero;
 
 --
 -- View: v_impresion_lista_pasajeros
@@ -25,9 +25,9 @@ create or replace view v_impresion_lista_pasajeros(
 ) as select numero_vuelo,folio,pasajero_presente,atencion_especial,asiento
 from pase_abordar pa
 join lista_pasajeros lp
-where pa.id_pase_abordar = lp.id_pase_abordar
+on pa.id_pase_abordar = lp.id_pase_abordar
 join vuelo v 
-where lp.id_vuelo = v.id_vuelo;
+on lp.id_vuelo = v.id_vuelo;
 
 --
 -- View: v_impresion_pase_abordar
@@ -41,12 +41,12 @@ v.numero_vuelo,v.sala_abordar,p.nombre,p.apellido_paterno,p.apellido_materno,
 lp.asiento
 from pasajero p
 join pase_abordar pa
-where p.id_pasajero= pa.id_pasajero
+on p.id_pasajero= pa.id_pasajero
 join lista_pasajeros lp
-where pa.id_pase_abordar = lp.id_pase_abordar
+on pa.id_pase_abordar = lp.id_pase_abordar
 join vuelo v 
-where lp.id_vuelo = v.id_vuelo
+on lp.id_vuelo = v.id_vuelo
 join aeropuerto o 
-where v.id_aeropuerto_origen = o.id_aeropuerto
+on v.id_aeropuerto_origen = o.id_aeropuerto
 join aeropuerto d
-where v.id_aeropuerto_destino = d.id_aeropuerto; 
+on v.id_aeropuerto_destino = d.id_aeropuerto; 

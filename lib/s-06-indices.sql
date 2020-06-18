@@ -18,9 +18,9 @@ equipaje
 -- Índice non-uniqe
 --
 prompt creando indice non unique;
-create index pab_id_pase_abordar_ix on pase_abordar(id_pase_abordar);
-create index pas_id_pasajero_ix on pasajero(id_pasajero);
-create index pq_id_paquete_ix on paquete(id_paquete);
+create index vu_fecha_hora_salida_ix on vuelo(fecha_hora_salida)
+create index vu_fecha_hora_llegada_ix on vuelo(fecha_hora_llegada)
+
 
 --
 -- Índice unique
@@ -33,7 +33,7 @@ create unique index pab_folio_iuk on pase_abordar(folio);
 -- Índice compuesto de tipo unique
 --
 prompt creando indice compuesto tipo unique;
-create index eq_equipajes_ix on equipaje(id_pasajero, id_vuelo);
+create index eq_equipajes_iuk on equipaje(id_pasajero, id_vuelo);
 
 --
 -- Índice basado en funciones

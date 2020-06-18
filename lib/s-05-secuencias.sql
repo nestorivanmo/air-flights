@@ -93,7 +93,7 @@ nomaxvalue
 minvalue 1
 nocycle
 cache 50
-norder;
+noorder;
 
 --
 -- Sequence paquete_seq
@@ -112,7 +112,7 @@ order;
 -- Sequence tipo_paquete_seq
 --
 prompt creando tipo_paquete_seq;
-create sequence 1
+create sequence tipo_paquete_seq
 start with 1
 increment by 1 
 nomaxvalue
