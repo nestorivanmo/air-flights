@@ -50,7 +50,7 @@ comm -23 sorted_avion_comercial.sql sorted_a_comercial_i > restantes_comercial
 paste -d '\n' avion_ambos restantes_carga restantes_comercial | sed '1,/^$/!d' | sed '$d' > avion_ambos_raw
 
 ##Se insertan ambos registros, si sobran borramos
-ultima=$(tail -1 "avion_ambos_intercalado")
+ultima=$(tail -1 "avion_ambos_raw")
 if [[ $ultima == *" avion "* ]];then
 	sed '$d' avion_ambos_raw > avion_ambos_intercalado;
 elif [[ $ultima == *" avion_carga "* ]];then
@@ -67,4 +67,5 @@ rm avion_ambos_raw *_intercalado
 rm sorted_*
 rm restantes*
 rm data_avion avion_carga avion_comercial avion_ambos
+./bool2number.sh avion.sql
 echo "Terminado (No significa que bien :P)"
