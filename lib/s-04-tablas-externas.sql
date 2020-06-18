@@ -16,7 +16,7 @@ prompt creando directorio tmp_dir;
 create or replace directory tmp_dir as '/tmp/bases/proyecto-final';
 
 prompt asignando permisos a em_proy_admin;
-grant read, write on directory to em_proy_admin;
+grant read, write on directory tmp_dir to em_proy_admin;
 
 prompt conectando como em_proy_admin;
 connect em_proy_admin;
