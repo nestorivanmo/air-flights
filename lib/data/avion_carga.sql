@@ -1,0 +1,15 @@
+insert into avion_carga (id_avion, num_bodegas, capacidad_carga, alto, ancho) values ('secuencia', 727, 655.1, 1.37, 1.96);
+insert into avion_carga (id_avion, num_bodegas, capacidad_carga, alto, ancho) values ('secuencia', 730, 356.58, 3.2, 5.61);
+insert into avion_carga (id_avion, num_bodegas, capacidad_carga, alto, ancho) values ('secuencia', 629, 360.05, 1.15, 6.0);
+insert into avion_carga (id_avion, num_bodegas, capacidad_carga, alto, ancho) values ('secuencia', 100, 600.36, 7.77, 6.49);
+insert into avion_carga (id_avion, num_bodegas, capacidad_carga, alto, ancho) values ('secuencia', 143, 634.85, 8.27, 5.61);
+insert into avion_carga (id_avion, num_bodegas, capacidad_carga, alto, ancho) values ('secuencia', 312, 807.85, 5.51, 2.83);
+insert into avion_carga (id_avion, num_bodegas, capacidad_carga, alto, ancho) values ('secuencia', 679, 122.72, 5.08, 4.57);
+insert into avion_carga (id_avion, num_bodegas, capacidad_carga, alto, ancho) values ('secuencia', 814, 551.59, 6.14, 6.65);
+insert into avion_carga (id_avion, num_bodegas, capacidad_carga, alto, ancho) values ('secuencia', 249, 515.64, 1.94, 2.26);
+insert into avion_carga (id_avion, num_bodegas, capacidad_carga, alto, ancho) values ('secuencia', 615, 476.77, 8.82, 8.13);
+insert into avion_carga (id_avion, num_bodegas, capacidad_carga, alto, ancho) values ('secuencia', 372, 663.24, 6.41, 5.7);
+insert into avion_carga (id_avion, num_bodegas, capacidad_carga, alto, ancho) values ('secuencia', 349, 758.67, 8.96, 8.06);
+insert into avion_carga (id_avion, num_bodegas, capacidad_carga, alto, ancho) values ('secuencia', 865, 637.76, 3.36, 5.78);
+insert into avion_carga (id_avion, num_bodegas, capacidad_carga, alto, ancho) values ('secuencia', 428, 161.65, 7.94, 4.19);
+insert into avion_carga (id_avion, num_bodegas, capacidad_carga, alto, ancho) values ('secuencia', 562, 72.17, 7.89, 3.46);

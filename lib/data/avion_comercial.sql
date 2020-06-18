@@ -1,0 +1,15 @@
+insert into avion_comercial (id_avion, num_ordinarios, num_vip, num_discapacitados) values ('secuencia', 135, 38, 15);
+insert into avion_comercial (id_avion, num_ordinarios, num_vip, num_discapacitados) values ('secuencia', 118, 22, 24);
+insert into avion_comercial (id_avion, num_ordinarios, num_vip, num_discapacitados) values ('secuencia', 74, 16, 10);
+insert into avion_comercial (id_avion, num_ordinarios, num_vip, num_discapacitados) values ('secuencia', 104, 40, 29);
+insert into avion_comercial (id_avion, num_ordinarios, num_vip, num_discapacitados) values ('secuencia', 112, 17, 27);
+insert into avion_comercial (id_avion, num_ordinarios, num_vip, num_discapacitados) values ('secuencia', 103, 36, 18);
+insert into avion_comercial (id_avion, num_ordinarios, num_vip, num_discapacitados) values ('secuencia', 108, 18, 12);
+insert into avion_comercial (id_avion, num_ordinarios, num_vip, num_discapacitados) values ('secuencia', 89, 37, 20);
+insert into avion_comercial (id_avion, num_ordinarios, num_vip, num_discapacitados) values ('secuencia', 129, 19, 20);
+insert into avion_comercial (id_avion, num_ordinarios, num_vip, num_discapacitados) values ('secuencia', 103, 17, 21);
+insert into avion_comercial (id_avion, num_ordinarios, num_vip, num_discapacitados) values ('secuencia', 132, 47, 24);
+insert into avion_comercial (id_avion, num_ordinarios, num_vip, num_discapacitados) values ('secuencia', 147, 47, 17);
+insert into avion_comercial (id_avion, num_ordinarios, num_vip, num_discapacitados) values ('secuencia', 72, 49, 17);
+insert into avion_comercial (id_avion, num_ordinarios, num_vip, num_discapacitados) values ('secuencia', 145, 42, 23);
+insert into avion_comercial (id_avion, num_ordinarios, num_vip, num_discapacitados) values ('secuencia', 128, 25, 14);
