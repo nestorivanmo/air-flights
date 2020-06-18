@@ -64,7 +64,7 @@ create table pasajero(
     apellido_materno            varchar2(50) null,
     email                       varchar2(100) null,
     fecha_nacimiento            date not null,
-    curp                        varchar2(13) not null,
+    curp                        varchar2(18) not null,
     constraint pasajero_pk primary key (id_pasajero),
     constraint pa_email_uk unique(email)
 );
@@ -111,7 +111,7 @@ create table empleado(
     apellido_materno            varchar2(50) not null,
     rfc                         varchar2(13) not null,
     curp                        varchar2(18) not null,
-    foto                        blob default empty_blob() not null,
+    foto                        blob default empty_blob()not null,
     puntos                      number(3,0) not null,
     id_jefe                     number(10,0) null,
     id_puesto_asignado          number(10,0) not null,
