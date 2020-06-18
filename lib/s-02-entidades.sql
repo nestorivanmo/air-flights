@@ -3,7 +3,6 @@
 --@Descripción:     Código de las tablas del caso de estudio.
 
 whenever sqlerror exit;
-
 --
 -- Table: AVION
 --
@@ -47,8 +46,8 @@ create table avion_carga(
     alto                        number(3,2) not null,
     ancho                       number(4,2) not null,
     volumen                     number(6,2) as (round(alto*ancho, 2)) virtual,
-    capacidad_libras            number(5,2) as (round(capacidad_carga * 2.2046 * 1000)
-    ,2)  virtual,
+    capacidad_libras            number(5,2) as (round((capacidad_carga * 2.2046 
+    * 1000),2)) virtual,
     constraint avion_carga_pk primary key (id_avion),
     constraint avcarga_id_avion_fk foreign key(id_avion) 
     references avion(id_avion)
@@ -113,7 +112,7 @@ create table empleado(
     apellido_materno            varchar2(50) not null,
     rfc                         varchar2(13) not null,
     curp                        varchar2(18) not null,
-    foto                        varbinary(100000) not null,
+    foto                        blob not null,
     puntos                      number(3,0) not null,
     id_jefe                     number(10,0) null,
     id_puesto_asignado          number(10,0) not null,
@@ -149,7 +148,7 @@ create table tipo_paquete(
     clave                       varchar2(5) not null,
     descripcion                 varchar2(50) not null,
     indicaciones_generales      varchar2(30) not null,
-    constraint tipo_paquete_pk primary key (id_tipo_paquete)
+    constraint tipo_paquete_pk primary key (id_tipo_paquete),
     constraint tp_clave_uk unique(clave)
 );
 
@@ -166,7 +165,7 @@ create table paquete(
     constraint paquete_pk primary key (id_paquete),
     constraint pq_id_tipo_paquete_fk foreign key(id_tipo_paquete) 
     references tipo_paquete(id_tipo_paquete),
-    constraint pq_folio_uk unique(folio)
+    constraint pq_folio_uk unique(folio),
     constraint pq_peso_chk check (peso > 0)
 );
 
@@ -177,32 +176,12 @@ prompt creando tabla pase_abordar;
 create table pase_abordar(
     id_pase_abordar             number(10,0) not null,
     folio                       varchar2(10) not null,
-    fecha                       date not null default sysdate,
+    fecha                       date  default sysdate not null,
     id_pasajero                 number(10,0) not null,
     constraint pase_abordar_pk primary key(id_pase_abordar),
     constraint pab_id_pasajero_fk foreign key(id_pasajero)
     references pasajero(id_pasajero),
     constraint pab_folio_uk unique(folio)
-);
-
---
--- Table: EQUIPAJE
---
-prompt creando tabla equipaje;
-create table equipaje(
-    id_equipaje                 number(10,0) not null,
-    numero                      number(1,0) not null,
-    peso                        number(4,2) not null,
-    id_pasajero                 number(10,0) not null,
-    id_vuelo                    number(10,0) not null,
-    constraint equipaje_pk primary key(id_equipaje),
-    constraint eq_id_pasajero_fk foreign key(id_pasajero)
-    references pasajero(id_pasajero),
-    constraint eq_id_vuelo_fk foreign key (id_vuelo)
-    references vuelo(id_vuelo),
-    constraint eq_peso_chk check (peso > 0),
-    constraint eq_numero_chk check (numero > 0),
-    constraint eq_numero_uk unique (numero, id_pasajero, id_vuelo)
 );
 
 --
@@ -224,25 +203,15 @@ prompt creando tabla vuelo;
 create table vuelo(
     id_vuelo                    number(10,0) not null,
     id_aeropuerto_origen        number(10,0) not null,
-    id_aeropuerto_destino       number(10,0 not null,
-    fecha_salida                date not null default sysdate,
+    id_aeropuerto_destino       number(10,0) not null,
+    fecha_salida                date default sysdate not null,
     fecha_llegada               date not null,
     numero_vuelo                varchar2(8) not null,
     sala_abordar                varchar2(5) not null,
-    distancia                   number(7,2) as (
-        select round(
-            sqrt(
-                power((d.latitud*111.13655555555556)
-                - (o.latitud*111.13655555555556),2)+
-                power((d.longitud*111.13655555555556)
-                - (o.longitud*111.13655555555556),2) 
-            ), 3) as distancia
-        from aeropuerto o, aeropuerto d
-        where o.id = id_aeropuerto_origen
-        and d.id = id_aeropuerto_destino
-    ) virtual,
-    duracion                    varchar2(2,0) as (
-        to_char(fecha_llegada - fecha_salida, 'HH24:MI:SS')
+    duracion                    varchar2(100)
+    as (
+        to_char(cast(fecha_llegada as timestamp)-cast(fecha_salida 
+        as timestamp))
     ) virtual,
     id_status_vuelo             number(10,0) not null,
     id_avion                    number(10,0) not null,
@@ -278,7 +247,7 @@ create table lista_ubicaciones(
 prompt creando tabla historico_status_vuelo;
 create table historico_status_vuelo(
     id_historico_status_vuelo   number(10,0) not null,
-    fecha                       date not null default sysdate,
+    fecha                       date default sysdate not null,
     id_status_vuelo             number(10,0) not null,
     id_vuelo                    number(10,0) not null,
     constraint historico_status_vuelo_pk primary key(id_historico_status_vuelo),
@@ -331,9 +300,29 @@ create table tripulacion(
     id_tripulacion              number(10,0) not null,
     id_vuelo                    number(10,0) not null,
     id_empleado                 number(10,0) not null,
-    constraint tripulacion_pk primary key(tripulacion_id),
+    constraint tripulacion_pk primary key(id_tripulacion),
     constraint tr_id_vuelo_fk foreign key(id_vuelo)
     references vuelo(id_vuelo),
     constraint tr_id_empleado_fk foreign key(id_empleado)
     references empleado(id_empleado)
+);
+
+--
+-- Table: EQUIPAJE
+--
+prompt creando tabla equipaje;
+create table equipaje(
+    id_equipaje                 number(10,0) not null,
+    numero                      number(1,0) not null,
+    peso                        number(4,2) not null,
+    id_pasajero                 number(10,0) not null,
+    id_vuelo                    number(10,0) not null,
+    constraint equipaje_pk primary key(id_equipaje),
+    constraint eq_id_pasajero_fk foreign key(id_pasajero)
+    references pasajero(id_pasajero),
+    constraint eq_id_vuelo_fk foreign key (id_vuelo)
+    references vuelo(id_vuelo),
+    constraint eq_peso_chk check (peso > 0),
+    constraint eq_numero_chk check (numero > 0),
+    constraint eq_numero_uk unique (numero, id_pasajero, id_vuelo)
 );
