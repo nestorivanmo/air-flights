@@ -83,12 +83,15 @@ cursor cur_admin_tables is
     select table_name
     from all_tables
     where owner = 'EM_PROY_ADMIN';
-synonym_name varchar2(100);
+stmt varchar2(200);
 begin
     for r in cur_admin_tables loop
         synonym_name := 'XX_' || r.table_name;
-        create or replace  synonym synonym_name
-        from em_proy_admin.r.table_name;
+        stmt := 'create or replace synonym ' 
+            || 'XX_'
+            || r.table_name
+            || ' from em_proy_admin.r.table_name';
+        execute immediate stmt;
     end loop;
 end;
 /
