@@ -202,8 +202,8 @@ create table vuelo(
     id_vuelo                    number(10,0) not null,
     id_aeropuerto_origen        number(10,0) not null,
     id_aeropuerto_destino       number(10,0) not null,
-    fecha_hora_salida                date default sysdate not null,
-    fecha_hora_llegada               date not null,
+    fecha_hora_salida           date default sysdate not null,
+    fecha_hora_llegada          date not null,
     numero_vuelo                varchar2(8) not null,
     sala_abordar                varchar2(5) not null,
     duracion                    varchar2(100)
