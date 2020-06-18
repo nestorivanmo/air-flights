@@ -76,7 +76,7 @@ create or replace  synonym historico_status_vuelo for
 -----
 prompt conectando como usuario em_proy_admin para sinónimos privados en prefijos de tablas;
 connect em_proy_admin;
-
+/*
 prompt ejecutando bloque anónimo para crear sinónimos privados con prefijos;
 declare
 cursor cur_admin_tables is
@@ -95,4 +95,5 @@ begin
     end loop;
 end;
 /
+*/
 show errors;
