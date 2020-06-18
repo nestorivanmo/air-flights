@@ -34,15 +34,16 @@ create table aeropuerto_ext(
     es_activo       number(1,0) 
 )
 organization external (
-    type oracle loader
-    default directory tmp_dir
-    access parameters(
+    type oracle_loader
+        default directory tmp_dir
+        access parameters (
         records delimited by newline
         badfile tmp_dir:'aeropuerto_ext_bad.log'
         logfile tmp_dir:'aeropuerto_ext.log'
         fields terminated by ','
         lrtrim
-        missing field values are null(
+        missing field values are null
+        (
             id_aeropuerto, clave, nombre, latitud, longitud, es_activo
         )
     )
