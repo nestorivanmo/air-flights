@@ -1,4 +1,0 @@
-    select table_name
-    from all_tables
-    where owner = 'EM_PROY_ADMIN'
-/
