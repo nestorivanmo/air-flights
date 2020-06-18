@@ -14,3 +14,15 @@ start data/pasajero.sql;
 -- AEROPUERTO
 --
 start data/aeropuerto.sql;
+--
+-- PUESTO ASIGNADO
+--
+start data/puesto_asignado.sql;
+--
+-- EMPLEADO
+--
+start data/empleado.sql;
+--
+-- URL_TRAYECTORIA
+--
+start data/url_trayectoria.sql
