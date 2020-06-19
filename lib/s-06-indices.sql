@@ -39,7 +39,7 @@ create index eq_equipajes_iuk on equipaje(id_pasajero, id_vuelo);
 -- Índice basado en funciones
 --
 prompt creando indice basado en funciones;
-create unique index pas_nombre_ix on pasajero(lower(nombre));
-create unique index pas_apellido_paterno_ix on pasajero(lower(apellido_paterno));
-create unique index pas_apellido_materno_ix on pasajero(lower(apellido_materno));
-create unique index ae_nombre_ix on aeropuerto(lower(nombre));
+create  index pas_nombre_ix on pasajero(lower(nombre));
+create  index pas_apellido_paterno_ix on pasajero(lower(apellido_paterno));
+create  index pas_apellido_materno_ix on pasajero(lower(apellido_materno));
+create  index ae_nombre_ix on aeropuerto(lower(nombre));
