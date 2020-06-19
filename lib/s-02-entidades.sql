@@ -77,8 +77,8 @@ create table aeropuerto(
     id_aeropuerto               number(10,0) not null,
     clave                       varchar2(5) not null,
     nombre                      varchar2(50) not null,
-    latitud                     number(10,7) not null,
-    longitud                    number(10,7) not null,
+    latitud                     number(23,20) not null,
+    longitud                    number(23,20) not null,
     es_activo                   number(1,0) not null,
     constraint aeropuerto_pk primary key (id_aeropuerto),
     constraint ae_clave_uk unique(clave),
@@ -230,8 +230,8 @@ create table vuelo(
 prompt creando table lista_ubicaciones;
 create table lista_ubicaciones(
     id_lista_ubicaciones        number(10,0) not null,
-    latitud                     number(10,7) not null,
-    longitud                    number(10,7) not null,
+    latitud                     number(23,20) not null,
+    longitud                    number(23,20) not null,
     fecha_hora                  date not null,
     id_vuelo                    number(10,0) not null,
     constraint lista_ubicaciones_pk primary key(id_lista_ubicaciones),
