@@ -4,11 +4,23 @@
 ################################   Programa basado en euristicas. Ya que los datos son aleatorios,     ###########################################################
 ################################   solo le interesa que haya suficientes para los 3 casos.             ###########################################################
 ################################   Toma los datos usados para los casos individuales                   ###########################################################
-################################   Para el caso comun, crea los registros acorde a casos sobrantes     ###########################################################
+################################   Para el caso comun, crea los registros acorde a casos sobrantes.    ###########################################################
+################################   el path del script bool2number debe ser el mismo que este archivo   ###########################################################
 ##################################################################################################################################################################
+set -e
+padherramienta=$(realpath bool2number.sh)
+echo "Dame el path de tus datos"
+read -p ">>" pad
+
+if ! cd $pad ;then
+	echo "No existe ese directorio"
+	exit 1000;
+fi
+	
+
 
 ##Eliminamos las que sean solo falsas
-awk '!/false, false/' data > data_avion ##Data avion tendrá los registros plausibles
+awk '!/false, false/' aviones.sql > data_avion ##Data avion tendrá los registros plausibles
 ##Tomamos aquellas que sean solo carga
 awk '/true, false/' data_avion > avion_carga
 
@@ -59,13 +71,14 @@ elif [[ $ultima == *" avion_carga "* ]];then
 else
 	cat avion_ambos_raw > avion_ambos_intercalado
 fi
-cat avion_ambos_intercalado > avion.sql
-cat avion_carga_intercalado >> avion.sql
-cat avion_comercial_intercalado >> avion.sql
+cat avion_ambos_intercalado > aviones_combinados.sql
+cat avion_carga_intercalado >> aviones_combinados.sql
+cat avion_comercial_intercalado >> aviones_combinados.sql
 
 rm avion_ambos_raw *_intercalado
 rm sorted_*
 rm restantes*
 rm data_avion avion_carga avion_comercial avion_ambos
-./bool2number.sh avion.sql
+
+$padherramienta avion.sql
 echo "Terminado (No significa que bien :P)"
