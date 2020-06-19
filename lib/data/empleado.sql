@@ -1,7 +1,7 @@
 --
 -- Director general (1) | Puesto asignado: 1
 --
-insert into empleado (id_empleado, nombre, apellido_paterno, apellido_materno, rfc, curp, puntos, id_puesto) values (empleado_seq.nextval, 'Giulio', 'Lambkin', 'Winfred', 'RDXC520291HY7', 'SEQR322529VEHIDM47', 62, 1);
+insert into empleado (id_empleado, nombre, apellido_paterno, apellido_materno, rfc, curp, puntos, id_puesto_asignado) values (empleado_seq.nextval, 'Giulio', 'Lambkin', 'Winfred', 'RDXC520291HY7', 'SEQR322529VEHIDM47', 62, 1);
 --
 -- Gerentes pilotos (2-11) | Puesto asignado: 2
 --
@@ -44,19 +44,19 @@ insert into empleado (id_empleado, nombre, apellido_paterno, apellido_materno, r
 --
 -- Pilotos (32-181) | Puesto asignado: 5 | Jefe: [2, 11] (gerente pilotos)
 --
-start pilotos.sql;
+start data/pilotos.sql;
 --
 -- Copilotos (182-481) | Puesto asignado: 6 | Jefe: [32, 181] (pilotos)
 --
-start copilotos.sql;
+start data/copilotos.sql;
 --
 -- Técnicos: (482-981) | Puesto asignado: 7 | Jefe: [12-21] (gerente técnicos)
 --
-start tecnicos.sql;
+start data/tecnicos.sql;
 --
 -- Jefe sobrecargos (982-1081) | Puesto asignado: 8 | Jefe: [22,31] (gerente sobrecargos)
 --
-start jefe_sobrecargos.sql;
+start data/jefe_sobrecargos.sql;
 --
 -- Sobrecargos (1082-2081) | Puesto asignado: 9 | Jefe: [982,1081] (jefe sobrecargos)
-start sobrecargos.sql;
+start data/sobrecargos.sql;
