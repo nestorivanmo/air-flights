@@ -7,7 +7,7 @@
 --
 start data/aviones.sql;
 --
--- PASAJERO
+-- PASAJERO 20K
 --
 start data/pasajero.sql;
 --
@@ -29,4 +29,19 @@ start data/url_trayectoria.sql
 --
 -- TIPO_PAQUETE
 --
-start data/tipo_paquete;
+start data/tipo_paquete.sql;
+--
+-- PAQUETE (1-20000)
+--
+start data/paquete.sql;
+--
+-- PASE_ABORDAR 11k
+--
+start data/pase_abordar.sql;
+--
+-- STATUS_VUELO
+--
+start data/status_vuelo.sql;
+--
+-- VUELO
+--

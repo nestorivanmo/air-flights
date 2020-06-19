@@ -144,7 +144,7 @@ create table url_trayectoria(
 prompt creando tabla tipo_paquete;
 create table tipo_paquete(
     id_tipo_paquete             number(10,0) not null,
-    clave                       varchar2(22) not null,
+    clave                       varchar2(5) not null,
     descripcion                 varchar2(50) not null,
     indicaciones_generales      varchar2(30) not null,
     constraint tipo_paquete_pk primary key (id_tipo_paquete),
