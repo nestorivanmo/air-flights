@@ -8,9 +8,15 @@
 ################################   el path del script bool2number debe ser el mismo que este archivo   ###########################################################
 ##################################################################################################################################################################
 set -e
+dh="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+cd $dh
 padherramienta=$(realpath bool2number.sh)
 echo "Dame el path de tus datos"
 read -p ">>" pad
+
+if [ -z $pad ]; then
+	pad="../data/"
+fi
 
 if ! cd $pad ;then
 	echo "No existe ese directorio"
@@ -80,5 +86,5 @@ rm sorted_*
 rm restantes*
 rm data_avion avion_carga avion_comercial avion_ambos
 
-$padherramienta avion.sql
+$padherramienta aviones_combinados.sql
 echo "Terminado (No significa que bien :P)"

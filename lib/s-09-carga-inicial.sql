@@ -2,10 +2,15 @@
 --@Fecha creación:  15/06/2020
 --@Descripción:     Carga inicial de los datos.
 
+
+whenever sqlerror exit;
 --
 -- AVION / AVION_COMERCIAL / AVION_CARGA
 --
-start data/aviones.sql;
+
+--preparando avion
+!../lib/helper/depurar.sh
+start data/aviones_combinados.sql;
 --
 -- PASAJERO 20K
 --
