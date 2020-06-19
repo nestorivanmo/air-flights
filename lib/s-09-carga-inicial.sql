@@ -16,7 +16,7 @@ start data/aviones_combinados.sql;
 --
 start data/pasajero.sql;
 --
--- AEROPUERTO 30K
+-- AEROPUERTO 1K
 --
 start data/aeropuerto.sql;
 --
@@ -54,4 +54,20 @@ start data/vuelo.sql;
 --
 -- LISTA UBICACIONES
 --
-start data/lista_ubicaciones.sql
+start data/lista_ubicaciones.sql;
+--
+-- HISTORICO STATUS VUELO
+--
+start data/historico_status_vuelo.sql;
+--
+-- LISTA PAQUETES
+--
+start data/lista_paquetes.sql;
+--
+-- LISTA PASAJEROS
+--
+start data/lista_pasajeros.sql;
+--
+-- TRIPULACION
+--
+start data/tripulacion.sql;
