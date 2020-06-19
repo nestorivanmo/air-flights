@@ -26,3 +26,7 @@ start data/empleado.sql;
 -- URL_TRAYECTORIA
 --
 start data/url_trayectoria.sql
+--
+-- TIPO_PAQUETE
+--
+start data/tipo_paquete;
