@@ -51,3 +51,7 @@ start data/status_vuelo.sql;
 -- VUELO
 --
 start data/vuelo.sql;
+--
+-- LISTA UBICACIONES
+--
+start data/lista_ubicaciones.sql
