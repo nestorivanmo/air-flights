@@ -1,7 +1,7 @@
 --
 -- Director general (1) | Puesto asignado: 1
 --
-insert into empleado (id_empleado, nombre, apellido_paterno, apellido_materno, rfc, curp, puntos, id_puesto) values (empleado_seq.nextval, 'Giulio', 'Lambkin', 'Winfred', 'RDXC520291HY7', 'SEQR322529VEHIDM47', 62, 1);
+insert into empleado (id_empleado, nombre, apellido_paterno, apellido_materno, rfc, curp, puntos, id_puesto_asignado) values (empleado_seq.nextval, 'Giulio', 'Lambkin', 'Winfred', 'RDXC520291HY7', 'SEQR322529VEHIDM47', 62, 1);
 --
 -- Gerentes pilotos (2-11) | Puesto asignado: 2
 --
