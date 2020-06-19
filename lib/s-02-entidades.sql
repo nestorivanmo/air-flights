@@ -131,7 +131,7 @@ create table empleado(
 prompt creando tabla url_trayectoria;
 create table url_trayectoria(
     id_url_trayectoria          number(10) not null,
-    url_trayectoria             varchar2(100) not null,
+    url_trayectoria             varchar2(300) not null,
     id_empleado                 number(10) not null,
     constraint url_trayectoria_pk primary key (id_url_trayectoria),
     constraint ut_id_empleado_fk foreign key(id_empleado)
@@ -146,7 +146,7 @@ create table tipo_paquete(
     id_tipo_paquete             number(10,0) not null,
     clave                       varchar2(5) not null,
     descripcion                 varchar2(50) not null,
-    indicaciones_generales      varchar2(60) not null,
+    indicaciones_generales      varchar2(300) not null,
     constraint tipo_paquete_pk primary key (id_tipo_paquete),
     constraint tp_clave_uk unique(clave)
 );
