@@ -16,7 +16,7 @@ start data/aviones_combinados.sql;
 --
 start data/pasajero.sql;
 --
--- AEROPUERTO
+-- AEROPUERTO 30K
 --
 start data/aeropuerto.sql;
 --
@@ -50,3 +50,4 @@ start data/status_vuelo.sql;
 --
 -- VUELO
 --
+start data/vuelo.sql;
