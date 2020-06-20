@@ -1,16 +1,16 @@
 # Datasets
-- Avion: 500 general e intercalados entre aviones comercial y aviones carga. 
+- Avion: 900 general e intercalados entre aviones comercial y aviones carga. 
 - Puesto Asingado: 
  1. Director General -> 1
  2. Gerente Pilotos (jefe Dir Gral) -> 10
  3. Gerente Sobrecargos (jefe Dir Gral) -> 10
  4. Gerente Técnicos (jefe Dir Gral) -> 10
- 5. Piloto (jefe 2) -> 500
- 6. Copiloto (jefe 5) -> 1000
- 7. Jefe Sobrecargos (jefe 3) -> 300
- 8. Sobrecargos (jefe 7) -> 2000
- 9. Tecnicos (jefe 4) -> 1000
-- Empleado -> 4831
+ 5. Piloto (jefe 2) -> 150
+ 6. Copiloto (jefe 5) -> 300
+ 7. Jefe Sobrecargos (jefe 3) -> 100
+ 8. Sobrecargos (jefe 7) -> 1000
+ 9. Tecnicos (jefe 4) -> 500
+- Empleado -> 2050
 - Url Trayectoria -> 4831 + algunos otros para empleados random
 - Tipo Paquete: 
  1. Alimentos
@@ -25,7 +25,7 @@
  10. Otros
 - Paquete: 10k
 - Pasajero: 30k
-- Pase Abordar: 50k y borrar a los pasajeros que no tengan pase de abordar asociado
+- Pase Abordar: 25k y borrar a los pasajeros que no tengan pase de abordar asociado
 - Status Vuelo: 
  1. PROGRAMADO
  2. ABORDANDO
