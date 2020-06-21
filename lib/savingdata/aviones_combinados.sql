@@ -1,3 +1,6 @@
+--
+-- Aviones comerciales y de carga
+--
 insert into avion (id_avion, matricula, modelo_avion, es_carga, es_comercial) values (avion_seq.nextval, '90u-x1303', '17-Kilo Whiskey', 1, 1);
 insert into avion_carga (id_avion, num_bodegas, capacidad_carga, alto, ancho) values (avion_seq.currval, 114, 243.5, 4.02, 35.01);
 insert into avion_comercial (id_avion, num_ordinarios, num_vip, num_discapacitados) values (avion_seq.currval, 102, 66, 26);
@@ -298,6 +301,9 @@ insert into avion_comercial (id_avion, num_ordinarios, num_vip, num_discapacitad
 insert into avion (id_avion, matricula, modelo_avion, es_carga, es_comercial) values (avion_seq.nextval, 'din-i6584', '49-India Tango', 1, 1);
 insert into avion_carga (id_avion, num_bodegas, capacidad_carga, alto, ancho) values (avion_seq.currval, 161, 766.25, 7.29, 21.81);
 insert into avion_comercial (id_avion, num_ordinarios, num_vip, num_discapacitados) values (avion_seq.currval, 113, 53, 20);
+--
+-- Aviones de carga
+--
 insert into avion (id_avion, matricula, modelo_avion, es_carga, es_comercial) values (avion_seq.nextval, 'p3l-b0906', '12-Victor India', 1, 0);
 insert into avion_carga (id_avion, num_bodegas, capacidad_carga, alto, ancho) values (avion_seq.currval, 331, 387.09, 8.6, 95.95);
 insert into avion (id_avion, matricula, modelo_avion, es_carga, es_comercial) values (avion_seq.nextval, 'fk0-b7662', '97-Victor Uniform', 1, 0);
@@ -598,6 +604,9 @@ insert into avion (id_avion, matricula, modelo_avion, es_carga, es_comercial) va
 insert into avion_carga (id_avion, num_bodegas, capacidad_carga, alto, ancho) values (avion_seq.currval, 574, 608.86, 1.66, 69.11);
 insert into avion (id_avion, matricula, modelo_avion, es_carga, es_comercial) values (avion_seq.nextval, 'mld-r3949', '87-Romeo November', 1, 0);
 insert into avion_carga (id_avion, num_bodegas, capacidad_carga, alto, ancho) values (avion_seq.currval, 164, 944.87, 4.59, 85.54);
+--
+-- Aviones comerciales 600 - 900
+--
 insert into avion (id_avion, matricula, modelo_avion, es_carga, es_comercial) values (avion_seq.nextval, 'au1-g0565', '79-Tango Juliett', 0, 1);
 insert into avion_comercial (id_avion, num_ordinarios, num_vip, num_discapacitados) values (avion_seq.currval, 56, 23, 50);
 insert into avion (id_avion, matricula, modelo_avion, es_carga, es_comercial) values (avion_seq.nextval, 'rt9-i7698', '86-Lima Hotel', 0, 1);

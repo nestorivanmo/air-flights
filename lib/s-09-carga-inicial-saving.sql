@@ -4,6 +4,7 @@
 
 whenever sqlerror exit;
 start savingdata/aviones_combinados.sql; --1-300 (hib) 301-600 (carg) 601-900 (com)
+start savingdata/aeropuerto.sql --1k
 start savingdata/puesto_asignado.sql; --9
 start savingdata/empleados.sql; -- 2050
 start savingdata/url_trayectoria.sql;
@@ -23,4 +24,10 @@ menor.
 start savingdata/vuelo.sql -- 3600
 start savingdata/historico_status_vuelo.sql --14000
 start savingdata/lista_ubicaciones.sql --20k (únicamente hay registros para los vuelos del 2016)
-start savingdata/lista_paquetes.sql --
+start savingdata/lista_paquetes.sql --7.2k
+/*
+num vuelos: 3600
+hibridos: 1-300; 901-1200; 1801-2100; 2701-3000;
+comerciales: 601-900; 1501-1800; 2400-2700; 3301-3600;
+*/
+start savingdata/lista_pasajeros.sql --
