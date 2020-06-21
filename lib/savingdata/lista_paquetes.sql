@@ -12,6 +12,7 @@ begin
   ';
   execute immediate v_sql_stmt using p_id_vuelo, p_id_paquete;
 end;
+/
 
 declare
 cursor cur_vuelos_carga is
