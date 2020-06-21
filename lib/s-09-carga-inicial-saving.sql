@@ -3,6 +3,7 @@
 --@Descripción:     Carga inicial de los datos.
 
 whenever sqlerror exit;
+<<<<<<< HEAD
 start savingdata/aviones_combinados.sql --1-300 (hib) 301-600 (carg) 601-900 (com)
 start savingdata/puesto_asignado.sql --9
 start savingdata/empleados.sql -- 2050
@@ -10,6 +11,16 @@ start savingdata/url_trayectoria.sql
 start savingdata/tipo_paquete.sql --1 -> 10
 start savingdata/paquete.sql --> 11k
 start savingdata/pasajero.sql --> 20k
+=======
+start savingdata/aviones_combinados.sql; --1-300 (hib) 301-600 (carg) 601-900 (com)
+start savingdata/aeropuerto.sql --1k
+start savingdata/puesto_asignado.sql; --9
+start savingdata/empleados.sql; -- 2050
+start savingdata/url_trayectoria.sql;
+start savingdata/tipo_paquete.sql; --1 -> 10
+start savingdata/paquete.sql; --> 11k
+start savingdata/pasajero.sql; --> 20k
+>>>>>>> 24cb4881156bc03554bed73c82278eae88e4d4dc
 start savingdata/pase_abordar.sql --> 25k
 start savingdata/status_vuelo.sql --> 5
 ---vuelos
@@ -23,4 +34,10 @@ menor.
 start savingdata/vuelo.sql -- 3600
 start savingdata/historico_status_vuelo.sql --14000
 start savingdata/lista_ubicaciones.sql --20k (únicamente hay registros para los vuelos del 2016)
-start savingdata/lista_paquetes.sql --
+start savingdata/lista_paquetes.sql --7.2k
+/*
+num vuelos: 3600
+hibridos: 1-300; 901-1200; 1801-2100; 2701-3000;
+comerciales: 601-900; 1501-1800; 2400-2700; 3301-3600;
+*/
+start savingdata/lista_pasajeros.sql --
