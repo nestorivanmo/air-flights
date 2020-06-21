@@ -16,3 +16,4 @@ de sus status, insertará dentro del histórico con fechas menores y un status
 menor.
 */
 start saving-data/vuelo.sql; -- 3600
+start saving-data/historico_status_vuelo.sql --14000
