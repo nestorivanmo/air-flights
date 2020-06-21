@@ -10,7 +10,7 @@ start savingdata/empleados.sql -- 2050
 start savingdata/url_trayectoria.sql
 start savingdata/tipo_paquete.sql --1 -> 10
 start savingdata/paquete.sql --> 11k
-start savingdata/pasajero.sql --> 20k
+start savingdata/pasajero.sql --> 25k
 start savingdata/pase_abordar.sql --> 25k
 start savingdata/status_vuelo.sql --> 5
 ---vuelos
@@ -26,8 +26,10 @@ start savingdata/historico_status_vuelo.sql --14000
 start savingdata/lista_ubicaciones.sql --20k (únicamente hay registros para los vuelos del 2016)
 start savingdata/lista_paquetes.sql --7.2k
 /*
-num vuelos: 3600
+num vuelos: 3600; 1200 hib, 1200 comerciales, 1200 carga
 hibridos: 1-300; 901-1200; 1801-2100; 2701-3000;
 comerciales: 601-900; 1501-1800; 2400-2700; 3301-3600;
 */
 start savingdata/lista_pasajeros.sql
+start savingdata/tripulacion.sql
+start savingdata/equipaje.sql
