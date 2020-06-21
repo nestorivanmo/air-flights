@@ -3668,7 +3668,7 @@ insert into paquete (id_paquete, folio, peso, id_tipo_paquete) values (paquete_s
 insert into paquete (id_paquete, folio, peso, id_tipo_paquete) values (paquete_seq.nextval, 'KZUF-582-QPGM6896J', 770.88, 8);
 insert into paquete (id_paquete, folio, peso, id_tipo_paquete) values (paquete_seq.nextval, 'NXXM-702-DNUA7404W', 742.21, 6);
 insert into paquete (id_paquete, folio, peso, id_tipo_paquete) values (paquete_seq.nextval, 'CLMC-793-YFDE9242I', 159.25, 3);
-insert into paquete (id_paquete, folio, peso, id_tipo_paquete) values (paquete_seq.nextval, 'QLRL-342-MRXY1000G', 0.0, 5);
+insert into paquete (id_paquete, folio, peso, id_tipo_paquete) values (paquete_seq.nextval, 'QLRL-342-MRXY1000G', 0.01, 5);
 insert into paquete (id_paquete, folio, peso, id_tipo_paquete) values (paquete_seq.nextval, 'OGBO-296-OIYL1683W', 527.66, 6);
 insert into paquete (id_paquete, folio, peso, id_tipo_paquete) values (paquete_seq.nextval, 'FZNQ-005-KIKD6045W', 378.11, 6);
 insert into paquete (id_paquete, folio, peso, id_tipo_paquete) values (paquete_seq.nextval, 'MYHO-731-WVCB5495G', 126.81, 3);
