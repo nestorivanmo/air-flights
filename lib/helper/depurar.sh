@@ -15,7 +15,7 @@ echo "Dame el path de tus datos"
 read -p ">>" pad
 
 if [ -z $pad ]; then
-	pad="../data/"
+	pad="../saving-data|/"
 fi
 
 if ! cd $pad ;then
