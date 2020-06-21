@@ -29,7 +29,7 @@ prompt asignando permiso de lectura a em_proy_invitado para tabla vuelo;
 grant select on vuelo to em_proy_invitado;
 
 prompt asignando permiso de lectura a em_proy_invitado para tabla lista_ubicaciones;
-grant select on lista_ubicaciones to em_proy_invitado;
+grant select on ubicaciones_log to em_proy_invitado;
 
 prompt asignando permiso de lectura a em_proy_invitado para tabla avion;
 grant select on avion to em_proy_invitado;
