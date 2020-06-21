@@ -13,16 +13,15 @@ begin
   execute immediate v_sql_stmt using p_id_vuelo, p_id_paquete;
 end;
 /
+show errors;
 
 declare
 cursor cur_vuelos_carga is
-  select * from vuelo
-  from vuelo
-  where id_avion = (
-    select id_avion
-    from avion
-    where es_carga = 1
-  );
+  select v.*
+  from vuelo v
+  join avion a
+  on v.id_avion = a.id_avion
+  where a.es_carga = 1;
 v_id_paquete paquete.id_paquete%type;
 v_counter number;
 begin
