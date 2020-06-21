@@ -23,6 +23,7 @@ menor.
 */
 start savingdata/vuelo.sql -- 3600
 start savingdata/historico_status_vuelo.sql --14000
+start savingdata/historico_status_fill.sql -- realiza las insersiones en el procedimiento anterior
 start savingdata/lista_ubicaciones.sql --20k (únicamente hay registros para los vuelos del 2016)
 start savingdata/lista_paquetes.sql --7.2k
 /*

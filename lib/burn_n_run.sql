@@ -1,6 +1,6 @@
 connect sys/system as sysdba;
 whenever sqlerror exit;
---WHENEVER OSERROR exit;
+WHENEVER OSERROR exit;
 show errors;
 
 drop user em_proy_invitado cascade;
