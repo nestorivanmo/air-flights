@@ -4,7 +4,7 @@ create or replace procedure sp_insert_into_lista_paquetes(
   p_id_vuelo in number,
   p_id_paquete in number
 ) is 
-  v_sql_stmt varchar2;
+  v_sql_stmt varchar2(400);
 begin
   v_sql_stmt := '
     insert into lista_paquetes(id_lista_paquetes, id_vuelo, id_paquete)

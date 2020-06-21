@@ -9,7 +9,7 @@ cursor cur_aviones_comerciales is
   where a.es_comercial = 1;
 v_counter number;
 v_presente number;
-v_insert_stmt varchar2;
+v_insert_stmt varchar2 (400);
 begin
   v_counter := 1;
   for r in cur_aviones_comerciales loop
