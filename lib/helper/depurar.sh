@@ -28,7 +28,7 @@ fi
 
 
 ##Eliminamos las que sean solo falsas
-awk '!/false, false/' aviones.sql > data_avion ##Data avion tendrá los registros plausibles
+awk '!/false, false/' avion.sql > data_avion ##Data avion tendrá los registros plausibles
 ##Tomamos aquellas que sean solo carga
 awk '/true, false/' data_avion	| head -n $num_aviones > avion_carga
 
