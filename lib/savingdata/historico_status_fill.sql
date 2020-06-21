@@ -3,6 +3,7 @@ declare
   cursor cur_vuelos is select * from vuelo;
 begin
   for r in cur_vuelos loop
+    sp_insert_into_historico(r.fecha_hora_llegada, r.id_status_vuelo, r.id_vuelo);
     case
       when r.id_status_vuelo = 3 or r.id_status_vuelo = 4 then
         sp_insert_into_historico(r.fecha_hora_llegada, 2, r.id_vuelo);
