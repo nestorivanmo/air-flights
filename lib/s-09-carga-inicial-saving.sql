@@ -3,7 +3,6 @@
 --@Descripción:     Carga inicial de los datos.
 
 whenever sqlerror exit;
-<<<<<<< HEAD
 start savingdata/aviones_combinados.sql --1-300 (hib) 301-600 (carg) 601-900 (com)
 start savingdata/puesto_asignado.sql --9
 start savingdata/empleados.sql -- 2050
@@ -11,16 +10,6 @@ start savingdata/url_trayectoria.sql
 start savingdata/tipo_paquete.sql --1 -> 10
 start savingdata/paquete.sql --> 11k
 start savingdata/pasajero.sql --> 20k
-=======
-start savingdata/aviones_combinados.sql; --1-300 (hib) 301-600 (carg) 601-900 (com)
-start savingdata/aeropuerto.sql --1k
-start savingdata/puesto_asignado.sql; --9
-start savingdata/empleados.sql; -- 2050
-start savingdata/url_trayectoria.sql;
-start savingdata/tipo_paquete.sql; --1 -> 10
-start savingdata/paquete.sql; --> 11k
-start savingdata/pasajero.sql; --> 20k
->>>>>>> 24cb4881156bc03554bed73c82278eae88e4d4dc
 start savingdata/pase_abordar.sql --> 25k
 start savingdata/status_vuelo.sql --> 5
 ---vuelos
