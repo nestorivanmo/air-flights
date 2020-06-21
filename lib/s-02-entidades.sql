@@ -280,7 +280,7 @@ create table lista_pasajeros(
     id_vuelo                    number(10,0) not null,
     id_pase_abordar             number(10,0) not null,
     pasajero_presente           number(1,0) not null,
-    atencion_especial           varchar2(300) not null,
+    atencion_especial           varchar2(300) null,
     asiento                     varchar2(5) not null,
     constraint lista_pasajeros_pk primary key(id_lista_pasajeros),
     constraint lpa_id_vuelo_fk foreign key(id_vuelo)
