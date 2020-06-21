@@ -1,6 +1,6 @@
 set serveroutput on;
 
-create or replace sp_insert_into_lista_paquetes(
+create or replace procedure sp_insert_into_lista_paquetes(
   p_id_vuelo in number,
   p_id_paquete in number
 ) is 
