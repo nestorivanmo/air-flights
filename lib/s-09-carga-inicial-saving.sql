@@ -1,3 +1,8 @@
+--@Autor(es):       Hector Espino Rojas, Néstor Martínez Ostoa
+--@Fecha creación:  15/06/2020
+--@Descripción:     Carga inicial de los datos.
+
+whenever sqlerror exit;
 start savingdata/aviones_combinados.sql; --1-300 (hib) 301-600 (carg) 601-900 (com)
 start savingdata/puesto_asignado.sql; --9
 start savingdata/empleados.sql; -- 2050
