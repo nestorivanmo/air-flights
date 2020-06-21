@@ -237,3 +237,14 @@ minvalue 1
 nocycle
 cache 50
 order;
+
+---
+prompt creando secuencias alternativas;
+create sequence id_pasajero_alt_seq
+start with 1
+increment by 1
+nomaxvalue
+minvalue 1
+nocycle
+cache 10
+order;
