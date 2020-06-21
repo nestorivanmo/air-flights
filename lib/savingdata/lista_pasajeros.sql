@@ -2,13 +2,11 @@ set serveroutput on;
 
 declare
 cursor cur_aviones_comerciales is
-  select *
-  from vuelo
-  where id_avion = (
-    select id_avion
-    from avion
-    where es_comercial = 1
-  );
+  select v.*
+  from vuelo v
+  join avion a
+  on v.id_avion = a.id_avion
+  where a.es_comercial = 1;
 v_counter number;
 v_presente number;
 v_insert_stmt varchar2;
