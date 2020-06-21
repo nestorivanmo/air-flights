@@ -29,4 +29,4 @@ num vuelos: 3600
 hibridos: 1-300; 901-1200; 1801-2100; 2701-3000;
 comerciales: 601-900; 1501-1800; 2400-2700; 3301-3600;
 */
-start savingdata/lista_pasajeros.sql --
+start savingdata/lista_pasajeros.sql
