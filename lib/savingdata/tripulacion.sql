@@ -1,5 +1,5 @@
 set serveroutput on;
-create or replace sp_insert_into_tripulacion(
+create or replace procedure sp_insert_into_tripulacion(
   p_id_tripulacion in number, p_id_vuelo in number, p_id_empleado in number
 ) is
 v_insert_stmt varchar2(400);
@@ -37,7 +37,7 @@ begin
     sp_insert_empleado(32, 181, r.id_vuelo);
     --copiloto
     sp_insert_empleado(182, 481, r.id_vuelo);
-    if es_carga == 1 && es_comercial == 1 then
+    if v_es_carga = 1 and v_es_comercial = 1 then
       --2 copilotos
       sp_insert_empleado(182, 481, r.id_vuelo);
       --jefe sobrecargos
@@ -47,14 +47,14 @@ begin
       sp_insert_empleado(1082, 2081, r.id_vuelo);
       sp_insert_empleado(1082, 2081, r.id_vuelo);
       --hasta 10 técnicos
-      for c in v_num_tecs loop
+      for c in 1 .. v_num_tecs loop
         sp_insert_empleado(482, 981, r.id_vuelo);
       end loop;
-    elsif es_carga == 1 && es_comercial == 0 then
+    elsif v_es_carga = 1 and v_es_comercial = 0 then
       --2 copilotos      
       sp_insert_empleado(182, 481, r.id_vuelo);
       --hasta 10 técnicos
-      for c in v_num_tecs loop
+      for c in 1 .. v_num_tecs loop
         sp_insert_empleado(482, 981, r.id_vuelo);
       end loop;
     else

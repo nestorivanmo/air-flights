@@ -11,7 +11,7 @@ begin
   v_counter := 1;
   for r in cur_vuelos loop
     for c in 1 .. 10 loop
-      v_peso := dbms_random.value(1, 25);
+      v_peso := trunc(dbms_random.value(1, 25),2);
       execute immediate v_stmt using equipaje_seq.nextval, 1, v_peso, v_counter, 
       r.id_vuelo;
       v_counter := v_counter + 1;
