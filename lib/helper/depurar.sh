@@ -8,6 +8,8 @@
 ################################   el path del script bool2number debe ser el mismo que este archivo   ###########################################################
 ##################################################################################################################################################################
 set -e
+num_aviones=300
+
 dh="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 cd $dh
 padherramienta=$(realpath bool2number.sh)
@@ -15,26 +17,28 @@ echo "Dame el path de tus datos"
 read -p ">>" pad
 
 if [ -z $pad ]; then
-	pad="../saving-data|/"
+	pad="../data/"
 fi
 
 if ! cd $pad ;then
 	echo "No existe ese directorio"
 	exit 1000;
 fi
-	
+
 
 
 ##Eliminamos las que sean solo falsas
 awk '!/false, false/' aviones.sql > data_avion ##Data avion tendrá los registros plausibles
 ##Tomamos aquellas que sean solo carga
-awk '/true, false/' data_avion > avion_carga
+awk '/true, false/' data_avion	| head -n $num_aviones > avion_carga
 
 ##Tomamos aquellas que sean solo pasajeros
-awk '/false, true/' data_avion > avion_comercial
+awk '/false, true/' data_avion | head -n $num_aviones > avion_comercial
 
 ##Ambos
-awk '/true, true/' data_avion >avion_ambos
+awk '/true, true/' data_avion | head -n $num_aviones >avion_ambos
+
+
 
 a=$(wc -l "avion_carga" )
 b=$(wc -l "avion_carga.sql")

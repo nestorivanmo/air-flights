@@ -45,7 +45,7 @@ grant select on historico_status_vuelo to em_proy_invitado;
 
 -----
 prompt conectando como usuario em_proy_invitado para crear sinónimos privados;
-connect em_proy_invitado;
+connect em_proy_invitado/emi;
 
 --
 -- Synonym: LISTA_UBICACIONES
@@ -75,7 +75,7 @@ create or replace  synonym historico_status_vuelo for
 
 -----
 prompt conectando como usuario em_proy_admin para sinónimos privados en prefijos de tablas;
-connect em_proy_admin;
+connect em_proy_admin/ema;
 /*
 prompt ejecutando bloque anónimo para crear sinónimos privados con prefijos;
 declare
