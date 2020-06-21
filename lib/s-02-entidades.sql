@@ -227,16 +227,14 @@ create table vuelo(
 ---
 --- Table: LISTA_UBICACIONES
 ---
-prompt creando table lista_ubicaciones;
-create table lista_ubicaciones(
-    id_lista_ubicaciones        number(10,0) not null,
+prompt creando table ubicaciones_log;
+create table ubicaciones_log(
+    id_ubicaciones_log          number(10,0) not null,
     latitud                     number(23,20) not null,
     longitud                    number(23,20) not null,
     fecha_hora                  date not null,
     id_vuelo                    number(10,0) not null,
-    constraint lista_ubicaciones_pk primary key(id_lista_ubicaciones),
-    constraint lu_id_vuelo_fk foreign key(id_vuelo)
-    references vuelo(id_vuelo)
+    constraint ubicaciones_log_pk primary key(id_ubicaciones_log)
 );
 
 --

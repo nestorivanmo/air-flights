@@ -31,10 +31,10 @@ cache 30
 noorder;
 
 --
--- Sequence: lista_ubicaciones_seq
+-- Sequence: ubicaciones_log_seq
 --
-prompt creando lista_ubicaciones_seq;
-create sequence lista_ubicaciones_seq
+prompt creando ubicaciones_log_seq;
+create sequence ubicaciones_log_seq
 start with 1
 increment by 1
 nomaxvalue
