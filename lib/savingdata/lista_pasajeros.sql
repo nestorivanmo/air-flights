@@ -1,5 +1,4 @@
 set serveroutput on;
-
 declare
 cursor cur_aviones_comerciales is
   select v.*
@@ -9,7 +8,7 @@ cursor cur_aviones_comerciales is
   where a.es_comercial = 1;
 v_counter number;
 v_presente number;
-v_insert_stmt varchar2 (400);
+v_insert_stmt varchar2(1000);
 v_num_asiento number;
 v_lett_asiento varchar2(1);
 begin
