@@ -86,6 +86,29 @@ order by ae.id_aeropuerto;
 -- 4: Cantidad de pasajeros ausentes en vuelos del 2019 (v_impresion_lista_pasajeros)
 -- 
 
+select q1.id_vuelo,
+  (
+    q1.num_pasajeros - (
+    select count(*) from lista_pasajeros where id_vuelo = q1.id_vuelo) 
+  )as pasajeros_faltantes,
+  q1.num_pasajeros,q1.fecha_hora_llegada
+from (
+    select v.id_vuelo,v.fecha_hora_llegada, 
+    (ac.num_ordinarios+ac.num_vip+ac.num_discapacitados) as num_pasajeros 
+    from vuelo v
+    join avion a
+    on a.id_avion = v.id_avion
+    join avion_comercial ac
+    on ac.id_avion = a.id_avion
+    where a.es_comercial = 1 and 
+    v.fecha_hora_llegada 
+    between to_date('1/1/2019', 'dd/mm/yyyy')
+    and  to_date('31/12/2019', 'dd/mm/yyyy')
+) q1
+order by q1.fecha_hora_llegada;
+
+
+
 --
 -- 5: Cuantos vuelos de carga y comercial hay en el momento (t_ubicacion)
 --
