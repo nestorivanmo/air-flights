@@ -9,7 +9,16 @@
   id_vuelo | ciudad_origen | ciudad_destinto | num_pasajeros
 */
 connect em_proy_admin/ema;
-select lp.id_vuelo, count(*) as num_pasajeros
+select lp.id_vuelo,(
+    select nombre
+    from aeropuerto
+    where id_aeropuerto = q1.id_aeropuerto_origen
+) as ciudad_origen,(
+    select nombre
+    from aeropuerto
+    where id_aeropuerto = q1.id_aeropuerto_destino
+) as ciudad_destino,
+count(*) as num_pasajeros
 from lista_pasajeros lp 
 join (
   select v.*
@@ -21,7 +30,8 @@ join (
 on lp.id_vuelo = q1.id_vuelo
 where q1.fecha_hora_salida between to_date('1/1/2016', 'dd/mm/yyyy')
 and  to_date('31/1/2016', 'dd/mm/yyyy')
-group by lp.id_vuelo;
+group by lp.id_vuelo,ciudad_origen,ciudad_destino
+order by lp.id_vuelo;
 
 --
 -- 2: Aumento del 10% en el sueldo a los empleados que hayan volado en más de 100
