@@ -126,4 +126,7 @@ from v_impresion_equipaje vie
 join v_impresion_lista_pasajeros vlp
 on vie.folio = vlp.folio_pase_abordar
 where vlp.numero_vuelo = (
-    select v.numero_vuelo from em_proy_admin.vuelo v where v.id_vuelo=601);
+    select v.numero_vuelo 
+    from em_proy_admin.vuelo v 
+    where v.id_vuelo=601
+);

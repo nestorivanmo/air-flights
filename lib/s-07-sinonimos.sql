@@ -84,7 +84,7 @@ create or replace synonym v_impresion_pase_abordar for
 create or replace synonym v_impresion_equipaje for
     em_proy_admin.v_impresion_equipaje;
 create or replace synonym v_impresion_lista_pasajeros for
-    em_proy_admin.v_impresion_lista_pasajeros
+    em_proy_admin.v_impresion_lista_pasajeros;
 
 -----
 /*
