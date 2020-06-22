@@ -43,17 +43,23 @@ order by lp.id_vuelo;
 --q1: empleados que tengan más de 30 vuelos 
 --q3: empleados que tengan arriba de 70
 select e.id_empleado, e.nombre, e.apellido_paterno, e.apellido_materno, e.puntos,
-  count(*) as num_vuelos
+  count(*) as num_vuelos, (
+    select nombre from puesto_asignado where id_puesto_asignado = e.id_puesto_asignado
+  ) as puesto
 from empleado e
 join tripulacion t on t.id_empleado = e.id_empleado
-group by e.id_empleado, e.nombre, e.apellido_paterno, e.apellido_materno, e.puntos
+group by e.id_empleado, e.nombre, e.apellido_paterno, e.apellido_materno, e.puntos,
+  e.id_puesto_asignado
 having count(*) > 30
 union
 select e.id_empleado,e.nombre,e.apellido_paterno,e.apellido_materno,
-	e.puntos, count(*) as num_vuelos
+	e.puntos, count(*) as num_vuelos, (
+    select nombre from puesto_asignado where id_puesto_asignado = e.id_puesto_asignado
+  ) as puesto
 from empleado e
 join tripulacion t on t.id_empleado = e.id_empleado
-group by e.id_empleado, e.nombre, e.apellido_paterno, e.apellido_materno, e.puntos
+group by e.id_empleado, e.nombre, e.apellido_paterno, e.apellido_materno, e.puntos,
+  e.id_puesto_asignado
 having e.puntos > 70 and count(*) > 30;
 
 --
