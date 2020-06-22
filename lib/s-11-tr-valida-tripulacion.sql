@@ -13,7 +13,7 @@ begin
   into v_clave
   from puesto_asignado pa
   join empleado e
-  on e.puesto_asignado = pa.puesto_asignado
+  on e.id_puesto_asignado = pa.id_puesto_asignado
   where e.id_empleado = p_id_empleado;
   return v_clave;
 end;
