@@ -67,10 +67,9 @@ begin
   --seleccionando el tipo de vuelo
   select a.es_carga, a.es_comercial
   into v_es_carga, v_es_comercial
-  from avion a
-  join vuelo v
-  on v.id_avion = a.id_avion
-  where v.id_vuelo = id_vuelo;
+  from avion a, vuelo v
+  where v.id_avion = a.id_avion
+  and v.id_vuelo = id_vuelo;
   if v_es_carga = 1 and v_es_comercial = 1 then
     case v_clave_puesto
       when 'PIL' then
