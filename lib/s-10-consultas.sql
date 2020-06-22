@@ -46,14 +46,16 @@ order by lp.id_vuelo;
 
 /*s
 --algebra relacional: q1 U q3
-select e.id_empleado, e.nombre, e.puntos, (
+select e.id_empleado, e.nombre, e.puntos, q1.nombre, count(*) as num_vuelos
+from empleado e
+join tripulacion t on t.id_empleado = e.id_empleado
+join (
   select nombre
   from puesto_asignado
   where id_puesto_asignado = e.id_puesto_asignado
-) as nombre_puesto, count(*) as num_vuelos
-from empleado e
-join tripulacion t on t.id_empleado = e.id_empleado
-group by e.id_empleado, e.nombre, e.puntos, nombre_puesto; 
+) q1
+on q1.id_puesto_asignado = e.id_puesto_asignado
+group by e.id_empleado, e.nombre, e.puntos, q1.nombre; 
 
 /*
 --q3 empleados que tengan arriba de 5,000
