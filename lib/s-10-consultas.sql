@@ -5,6 +5,7 @@
 --
 -- 1: Cantidad de pasajeros que viajaron con air-flights en enero del 2016
 --
+connect em_proy_admin/ema;
 select count(*) as num_pasajeros
 from lista_pasajeros lp, (
   select v.*
@@ -12,11 +13,10 @@ from lista_pasajeros lp, (
   join avion a
   on v.id_avion = a.id_avion
   where a.es_comercial = 1
-) as q1
+) q1
 where lp.id_vuelo = q1.id_vuelo
-and q1.fecha_hora_salida between (to_date('1/1/2016', 'dd/mm/yyyy')
-  and to_date('31/1/2016', 'dd/mm/yyyy')
-)
+and q1.fecha_hora_salida between to_date('1/1/2016', 'dd/mm/yyyy')
+and  to_date('31/1/2016', 'dd/mm/yyyy')
 order by q1.fecha_hora_salida;
 
 --
