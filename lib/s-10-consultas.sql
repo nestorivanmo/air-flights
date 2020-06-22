@@ -2,13 +2,14 @@
 --@Fecha creación:  15/06/2020
 --@Descripción:     Script con consultas a la base de datos.
 
+connect em_proy_admin/ema;
+
 --
 -- 1: Cantidad de pasajeros que viajaron con air-flights en enero del 2016
 --
 /*
   id_vuelo | ciudad_origen | ciudad_destinto | num_pasajeros
-*/
-connect em_proy_admin/ema;
+
 select lp.id_vuelo, (
 		select nombre
 		from aeropuerto 
@@ -31,11 +32,22 @@ where q1.fecha_hora_salida between to_date('1/1/2016', 'dd/mm/yyyy')
 and  to_date('31/1/2016', 'dd/mm/yyyy')
 group by lp.id_vuelo, q1.id_aeropuerto_origen, q1.id_aeropuerto_destino
 order by lp.id_vuelo;
-
+*/
 --
 -- 2: Aumento del 10% en el sueldo a los empleados que hayan volado en más de 100
 -- vuelos y que los vuelos no hayan sido cancelados
 --
+
+--q3 empleados que tengan arriba de 5,000
+select e.id_empleado,e.nombre,e.ap_paterno,e.ap_materno,
+	e.puntos,
+	(select nombre from puesto_asignado
+	where id_puesto_asignado = e.id_puesto_asignado) as nombre_puesto
+
+from empleado e
+where e.puntos > 5000
+order by e.nombre;
+
 
 --
 -- 3: Cantidad de aeroupuertos que tengan convenio con air-flights (usando t ext)
