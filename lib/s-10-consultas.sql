@@ -54,7 +54,7 @@ select e.id_empleado,e.nombre,e.apellido_paterno,e.apellido_materno,
 from empleado e
 join tripulacion t on t.id_empleado = e.id_empleado
 group by e.id_empleado, e.nombre, e.apellido_paterno, e.apellido_materno, e.puntos
-having e.puntos > 70;
+having e.puntos > 70 and count(*) > 30;
 
 --
 -- 3: Cantidad de aeroupuertos que tengan convenio con air-flights (usando t ext)
