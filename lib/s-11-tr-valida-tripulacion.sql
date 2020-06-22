@@ -46,6 +46,10 @@ create or replace procedure sp_evaluacion(
 begin
   if p_cantidad_actual > p_cantidad_maxima then
     raise_application_error(-20001, 'Excedido el numero de ' || p_clave);
+  elsif p_cantidad_actual < p_cantidad_maxima then
+    if p_clave != 'TEC' then
+      dbms_output.put_line('WARNING: faltan tripulantes de este tipo');
+    end if;
   end if;
 end;
 /
