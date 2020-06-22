@@ -71,47 +71,46 @@ begin
   join vuelo v
   on v.id_avion = a.id_avion
   where v.id_vuelo = id_vuelo;
-  case
-    when v_es_carga = 1 and v_es_comercial = 1 then
-      case v_clave_puesto
-        when 'PIL' then
-          sp_evaluacion(1, v_cantidad_tripulantes, v_clave_puesto);
-        when 'COP' then
-          sp_evaluacion(2, v_cantidad_tripulantes, v_clave_puesto);
-        when 'TEC' then
-          sp_evaluacion(10, v_cantidad_tripulantes, v_clave_puesto);
-        when 'JEFSOB' then
-          sp_evaluacion(1, v_cantidad_tripulantes, v_clave_puesto);
-        when 'SOB' then
-          sp_evaluacion(3, v_cantidad_tripulantes, v_clave_puesto);
-      end case;
-    when v_es_carga = 1 and v_es_comercial = 0 then
-      case v_clave_puesto
-        when 'PIL' then
-          sp_evaluacion(1, v_cantidad_tripulantes, v_clave_puesto);
-        when 'COP' then
-          sp_evaluacion(2, v_cantidad_tripulantes, v_clave_puesto);
-        when 'TEC' then
-          sp_evaluacion(10, v_cantidad_tripulantes, v_clave_puesto);
-        when 'JEFSOB' then
-          raise_application_error(-20002, 'No se puede insertar ' || v_clave_puesto || ' en este tipo de vuelo');
-        when 'SOB' then
-          raise_application_error(-20002, 'No se puede insertar ' || v_clave_puesto || ' en este tipo de vuelo');
-      end case;
-    when v_es_carga = 0 and v_es_comercial = 1 then
-      case v_clave_puesto
-        when 'PIL' then
-          sp_evaluacion(1, v_cantidad_tripulantes, v_clave_puesto);
-        when 'COP' then
-          sp_evaluacion(1, v_cantidad_tripulantes, v_clave_puesto);
-        when 'TEC' then
-          raise_application_error(-20002, 'No se puede insertar ' || v_clave_puesto || ' en este tipo de vuelo');
-        when 'JEFSOB' then
-          sp_evaluacion(1, v_cantidad_tripulantes, v_clave_puesto);
-        when 'SOB' then
-          sp_evaluacion(3, v_cantidad_tripulantes, v_clave_puesto);
-      end case;
-  end case;
+  if v_es_carga = 1 and v_es_comercial = 1 then
+    case v_clave_puesto
+      when 'PIL' then
+        sp_evaluacion(1, v_cantidad_tripulantes, v_clave_puesto);
+      when 'COP' then
+        sp_evaluacion(2, v_cantidad_tripulantes, v_clave_puesto);
+      when 'TEC' then
+        sp_evaluacion(10, v_cantidad_tripulantes, v_clave_puesto);
+      when 'JEFSOB' then
+        sp_evaluacion(1, v_cantidad_tripulantes, v_clave_puesto);
+      when 'SOB' then
+        sp_evaluacion(3, v_cantidad_tripulantes, v_clave_puesto);
+    end case;
+  elsif v_es_carga = 1 then
+    case v_clave_puesto
+      when 'PIL' then
+        sp_evaluacion(1, v_cantidad_tripulantes, v_clave_puesto);
+      when 'COP' then
+        sp_evaluacion(2, v_cantidad_tripulantes, v_clave_puesto);
+      when 'TEC' then
+        sp_evaluacion(10, v_cantidad_tripulantes, v_clave_puesto);
+      when 'JEFSOB' then
+        raise_application_error(-20002, 'No se puede insertar ' || v_clave_puesto || ' en este tipo de vuelo');
+      when 'SOB' then
+        raise_application_error(-20002, 'No se puede insertar ' || v_clave_puesto || ' en este tipo de vuelo');
+    end case;
+  else
+    case v_clave_puesto
+      when 'PIL' then
+        sp_evaluacion(1, v_cantidad_tripulantes, v_clave_puesto);
+      when 'COP' then
+        sp_evaluacion(1, v_cantidad_tripulantes, v_clave_puesto);
+      when 'TEC' then
+        raise_application_error(-20002, 'No se puede insertar ' || v_clave_puesto || ' en este tipo de vuelo');
+      when 'JEFSOB' then
+        sp_evaluacion(1, v_cantidad_tripulantes, v_clave_puesto);
+      when 'SOB' then
+        sp_evaluacion(3, v_cantidad_tripulantes, v_clave_puesto);
+    end case;
+  end if;
 end;
 /
 show errors;
