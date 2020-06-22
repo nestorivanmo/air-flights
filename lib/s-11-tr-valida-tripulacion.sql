@@ -53,16 +53,15 @@ show errors;
 
 create or replace trigger trg_valida_tripulacion
 before insert or update of id_vuelo, id_empleado on tripulacion
+for each row
 declare
 v_es_carga number;
 v_es_comercial number;
 v_clave_puesto varchar2(50);
 v_cantidad_tripulantes number;
-v_id_empleado := id_empleado;
-v_id_vuelo := id_vuelo;
 begin
-  v_clave_puesto := fn_obtener_clave_puesto_asignado(v_id_empleado);
-  v_cantidad_tripulantes := fn_contar_puestos(v_clave_puesto, v_id_vuelo);
+  v_clave_puesto := fn_obtener_clave_puesto_asignado(:new.id_empleado);
+  v_cantidad_tripulantes := fn_contar_puestos(v_clave_puesto, :new.id_vuelo);
   v_cantidad_tripulantes := v_cantidad_tripulantes + 1;
   --seleccionando el tipo de vuelo
   select a.es_carga, a.es_comercial
