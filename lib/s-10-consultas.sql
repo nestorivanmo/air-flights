@@ -53,17 +53,7 @@ select e.id_empleado, e.nombre, e.puntos, (
 ) as nombre_puesto, count(*) as num_vuelos
 from empleado e
 join tripulacion t on t.id_empleado = e.id_empleado
-<<<<<<< HEAD
-group by e.nombre
-having (
-  select count(*)
-  from empleado e
-  join tripulacion t on t.id_empleado = e.id_empleado;
-) > 100;
-*/
-=======
 group by e.id_empleado, e.nombre, e.puntos, nombre_puesto; 
->>>>>>> 54d51d2758e823ad0dbdbbdacfe2fbc8b1ee678b
 
 /*
 --q3 empleados que tengan arriba de 5,000
