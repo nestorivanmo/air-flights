@@ -31,7 +31,7 @@ VersionId,Version_ID,Copyright,Global_User_ID,Row_Time_Stamp
 
 Diagram
 DiagramId,Version_ID,VersionId,LastUpdate,CreateDate,ActiveModel,ActiveSubmodel,VSplitterPosition,X,Y,Width,Height,DiagramNameId,AuthorId,CompanyId,VersionNoId,CopyrightStringId,DefinitionId,UnificationOptionId,FileNameId,CopyrightYearStringId,DiagramName,CodePage,SignatureGUID,ReleaseName,Flags,Global_User_ID,Row_Time_Stamp
-1,1,800,06/21/2020 16:04:55G,06/15/2020 18:14:32G,1,1,180,0,0,0,0,9,10,11,12,11,0,13,9,0,EspinoMartinez-Air-Flights-RM.DM1,1252,NULL,NULL,0,1,0
+1,1,800,06/21/2020 23:23:33G,06/15/2020 18:14:32G,1,1,180,0,0,0,0,9,10,11,12,11,0,13,9,0,EspinoMartinez-Air-Flights-RM.DM1,1252,NULL,NULL,0,1,0
 
 Model
 DiagramId,ModelId,Model_ID,ModelType,PlatformId,NamePrefix,SpaceHandling,CaseHandling,GenPrimaryKey,GenAlternateKey,GenInversionEntry,GenForeignKey,Notation,ModelNameId,RowOverhead,TableOverhead,IndexOverhead,BlobOverhead,BlobBlockSize,Global_User_ID,Row_Time_Stamp
@@ -66,7 +66,7 @@ SubmodelLink_ID,Model_ID,Parent_ID,Child_ID,UltimateParent_ID,NodeLevel,IsBottom
 
 DiagramDisplay
 DiagramId,ModelId,SubmodelId,DiagramDisplay_ID,Submodel_ID,PlatformId,Animate,ZoomFactor,HviewSize,VviewSize,HorizontalScrollPosition,VerticalScrollPosition,PageOrientation,PageSize,DisplayFormat,EntityDisplayInfo,ViewDisplayFormat,ViewDisplayInfo,Shadow,CompleteRoleName,ShowVerbs,ShowCardinality,MethodologyId,StraightRelLine,PageBoundary,ShowViewRelationship,ShowView,HideTrigger,Global_User_ID,Row_Time_Stamp,ShowSchemaObjEdge,ShowSchemaObj,SchemaObjDisplayFormat,ShowRelationshipName,ShowLogicalRelationshipName,ShowTriggerLabel,ShowShape,ShowShapeEdge,ShowShapeName,ShowShapeEdgeName,ShowShapeEdgeVerbs,TransformationDisplayFormat
-1,1,1,1,1,0,0,8493,0,0,-1365,-83,1,1,8,3269,1,0,1,0,1,1,0,0,0,0,0,1,23,0,1,6,7,0,0,0,0,0,1,0,1,10
+1,1,1,1,1,0,0,9156,0,0,-1263,-286,1,1,8,3269,1,0,1,0,1,1,0,0,0,0,0,1,23,0,1,6,7,0,0,0,0,0,1,0,1,10
 
 GridDisplay
 DiagramId,ModelId,SubmodelId,GridDisplay_ID,Submodel_ID,Show,Snap,HorizontalSpacing,VerticalSpacing,HorizontalGridsPerLine,VericalGridsPerLine,Units,Global_User_ID,Row_Time_Stamp
@@ -943,8 +943,8 @@ String_Id,Data,Overflow,ConstantString,Row_Time_Stamp
 184,url_trayectoria,0,0,0
 8,EspinoMartinez-Air-Flights-RM_DD,0,0,0
 185,capacidad_carga_libras,0,0,0
-186,UBICACIONES_LOG,0,0,0
 9,EspinoMartinez-Air-Flights-RM.DM1,0,0,0
+186,UBICACIONES_LOG,0,0,0
 10,nestor.martinez.98@hotmail.com,0,0,0
 11,UNAM,0,0,0
 12,1.0,0,0,0
@@ -1298,10 +1298,10 @@ StringUsage_Id,UniqueObject_Id,StringUsageType_Id,String_Id,Row_Time_Stamp
 612,1464,14,185,0
 175,311,14,84,0
 613,1464,15,185,0
-614,1465,14,109,0
 176,311,15,84,0
-615,1465,15,109,0
+614,1465,14,109,0
 177,313,14,86,0
+615,1465,15,109,0
 178,313,15,86,0
 179,314,14,87,0
 180,314,15,87,0
@@ -1702,7 +1702,7 @@ Identity_Value_ID,Table_Name,Column_Name,Next_Valid_Value,Global_User_ID,Row_Tim
 14,Bound_Dictionary_Object,Bound_Dictionary_Object_ID,1,0,0
 15,CheckConstraints,CheckConstraints_ID,1,0,0
 16,Circular_Layout,Circular_Layout_ID,7,0,0
-17,ColorDefault,ColorDefault_ID,349,0,0
+17,ColorDefault,ColorDefault_ID,350,0,0
 18,Column_Usage,Column_Usage_ID,51,0,0
 19,Components_Layout,Components_Layout_ID,7,0,0
 20,Configuration_Option,Configuration_Option_ID,1,0,0
@@ -3963,8 +3963,8 @@ UniqueObject_Id,ObjectType_Id,Model_ID,Object_Domain_ID,InterModel_Id,IntraModel
 1463,26,1,1,43,0,6e75dc5019cb487690df16a42f2df0ae,383884148ccd465ba40dc87812cfc0bc,06/17/2020 04:52:56G,1592369277,1,0,0
 454,8,1,1,36,0,1b4864ac45ea41f2bb8ad980eafb84cd,06aa245a7c4d4494852fe9e7f5c86e85,06/16/2020 04:40:09G,1592279744,1,0,0
 1464,1,1,1,12,3,23e321bb06f348b881d9fbf1e2b8cd1e,8767ccebe1524a8eb34f5dc0710e54fc,06/18/2020 16:52:18G,1592499021,1,0,0
-1465,1,1,1,8,25,0977aff5fae045278639458994913179,12031c933b4c467cafad1137e0538626,06/21/2020 21:01:32G,1592773281,1,0,0
 455,29,1,1,36,0,fbd30ccfb9b34a898b06bdaf41c08143,cef90103ed854ac4a235ca15fba6ddce,06/16/2020 04:40:09G,1592279744,1,0,0
+1465,1,1,1,8,25,0977aff5fae045278639458994913179,12031c933b4c467cafad1137e0538626,06/21/2020 21:01:32G,1592773281,1,0,0
 456,1,1,1,2,16,83a32af98b8d4c79bdbbb4f5aae898e6,75f3d76790234e6a95535f3c47e58f52,06/16/2020 04:40:09G,1592279744,1,0,0
 457,26,1,1,32,0,e2e85c289fac42d3897e1c728c356263,8ff7d9ad9a7c4f53a9fc98df3fc301ce,06/16/2020 04:40:09G,1592279744,1,0,0
 458,8,1,1,37,0,71ce0d95770246d98a1dacbb1410fd90,e70b7d34d01f45838b9a7f10005bd856,06/16/2020 04:40:09G,1592279849,1,0,0
