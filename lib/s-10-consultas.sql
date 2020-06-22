@@ -9,7 +9,7 @@ connect em_proy_admin/ema;
 --
 /*
   id_vuelo | ciudad_origen | ciudad_destinto | num_pasajeros
-
+*/
 select lp.id_vuelo, (
 		select nombre
 		from aeropuerto 
@@ -32,7 +32,7 @@ where q1.fecha_hora_salida between to_date('1/1/2016', 'dd/mm/yyyy')
 and  to_date('31/1/2016', 'dd/mm/yyyy')
 group by lp.id_vuelo, q1.id_aeropuerto_origen, q1.id_aeropuerto_destino
 order by lp.id_vuelo;
-*/
+
 --
 -- 2: Aumento del 10% en el sueldo a los empleados que hayan volado en más de 30
 -- vuelos y  que tenga arriba de 70 puntos
