@@ -4,10 +4,10 @@
 set serveroutput on;
 
 create or replace trigger tr_ubicaciones_log 
-after insert on id_ubicacion, latitud, longitud, fecha_hora, id_vuelo of t_ubicacion
+after insert or update or delete on t_ubicacion
 for each row
 begin
-  insert into ubicaciones_log(id_lista_ubicaciones, id_vuelo, latitud,
+  insert into ubicaciones_log(id_ubicaciones_log, id_vuelo, latitud,
     longitud, fecha_hora)
   values(ubicaciones_log_seq.nextval, :old.id_vuelo, :old.latitud,
     :old.longitud, :old.fecha_hora
