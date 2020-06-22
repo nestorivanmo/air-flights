@@ -14,7 +14,7 @@ from lista_pasajeros lp, (
   where a.es_comercial = 1
 ) as q1
 where lp.id_vuelo = q1.id_vuelo
-and q1.fecha_hora_salida in between (to_date('1/1/2016', 'dd/mm/yyyy')
+and q1.fecha_hora_salida between (to_date('1/1/2016', 'dd/mm/yyyy')
   and to_date('31/1/2016', 'dd/mm/yyyy')
 )
 order by q1.fecha_hora_salida;
