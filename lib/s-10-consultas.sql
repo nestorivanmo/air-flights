@@ -65,6 +65,11 @@ having e.puntos > 70 and count(*) > 30;
 --
 -- 3: Cantidad de aeroupuertos que tengan convenio con air-flights (usando t ext)
 --
+select * 
+from aeropuerto_ext
+where clave is not null
+and es_activo = 1
+and nombre is not null;
 
 --
 -- 4: Cantidad de pasajeros ausentes en vuelos del 2019 (v_impresion_lista_pasajeros)
