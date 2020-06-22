@@ -66,21 +66,17 @@ having e.puntos > 70 and count(*) > 30;
 -- 3: Seleccionar el aeropuerto de origen que tenga la mayor cantidad de vuelos
 -- de carga y que tenga convenio con air flights usando la tabla_externa.
 --
-select *, max(count(*)) as num_vuelos
-from vuelo v
-join avion av using (id_avion)
-join aeropuerto_ext a
-on v.id_aeropuerto_origen = a.id_aeropuerto
-group by v.id_aeropuerto_origen
-having av.es_carga = 1;
-
-select ae.id_aeropuerto, ae.clave, ae.nombre, count(*) as num_vuelos
-from aeropuerto_ext ae
-join vuelo v on v.id_aeropuerto_origen = ae.id_aeropuerto
-join avion a on a.id_avion = v.id_avion
-where a.es_carga = 1
-group by ae.id_aeropuerto, ae.clave, ae.nombre
-order by ae.id_aeropuerto;
+select max(q1.num_vuelos) as max_vuelos
+from aeropuerto_ext aex
+join (
+  select ae.id_aeropuerto, count(*) as num_vuelos
+  from aeropuerto_ext ae
+  join vuelo v on v.id_aeropuerto_origen = ae.id_aeropuerto
+  join avion a on a.id_avion = v.id_avion
+  where a.es_carga = 1
+  group by ae.id_aeropuerto
+) q1
+on q1.id_aeropuerto = aex.id_aeropuerto;
 
 --
 -- 4: Cantidad de pasajeros ausentes en vuelos del 2019 (v_impresion_lista_pasajeros)
