@@ -3,7 +3,7 @@
 --@Descripción:     Escenarios con usos de tablas externas.
 
 whenever sqlerror exit;
-
+drop table aeropuerto_ext;
 ---
 --- Configuracion previa
 ---

@@ -3,6 +3,8 @@
 --@Descripción:     Carga inicial de los datos.
 
 whenever sqlerror exit;
+
+connect em_proy_admin/ema;
 prompt cargando datos de aeropuerto;
 start savingdata/aeropuerto.sql
 prompt cargando datos de aviones combinados:

@@ -83,8 +83,11 @@ create or replace synonym v_impresion_pase_abordar for
     em_proy_admin.v_impresion_pase_abordar;
 create or replace synonym v_impresion_equipaje for
     em_proy_admin.v_impresion_equipaje;
+create or replace synonym v_impresion_lista_pasajeros for
+    em_proy_admin.v_impresion_lista_pasajeros;
 
 -----
+/*
 prompt conectando como usuario em_proy_admin para sinónimos privados en prefijos de tablas;
 connect em_proy_admin/ema;
 
@@ -106,3 +109,4 @@ begin
 end;
 /
 show errors;
+*/
