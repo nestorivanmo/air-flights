@@ -62,18 +62,25 @@ having e.puntos > 70 and count(*) > 30;
 -- 3: Seleccionar el aeropuerto de origen que tenga la mayor cantidad de vuelos
 -- de carga y que tenga convenio con air flights usando la tabla_externa.
 --
---subconsulta, externa, groupby
-select max(q1.num_vuelos) as max_vuelos
-from aeropuerto_ext aex
-join (
-  select ae.id_aeropuerto, count(*) as num_vuelos
-  from aeropuerto_ext ae
-  join vuelo v on v.id_aeropuerto_origen = ae.id_aeropuerto
-  join avion a on a.id_avion = v.id_avion
-  where a.es_carga = 1
-  group by ae.id_aeropuerto
-) q1
-on q1.id_aeropuerto = aex.id_aeropuerto;
+select ax.id_aeropuerto, ax.nombre, ax.latitud, ax.longitud, ax.es_activo, 
+  count(*) as num_vuelos
+from aeropuerto_ext ax
+join vuelo v on v.id_aeropuerto_origen = ax.id_aeropuerto
+group by ax.id_aeropuerto, ax.nombre, ax.latitud, ax.longitud, ax.es_activo
+having count(*) = (
+  select max(q1.num_vuelos) as max_vuelos
+  from aeropuerto_ext aex
+  join (
+    select ae.id_aeropuerto, count(*) as num_vuelos
+    from aeropuerto_ext ae
+    join vuelo v on v.id_aeropuerto_origen = ae.id_aeropuerto
+    join avion a on a.id_avion = v.id_avion
+    where a.es_carga = 1
+    group by ae.id_aeropuerto
+  ) q1
+  on aex.id_aeropuerto = q1.id_aeropuerto
+) and es_activo = 1
+order by id_aeropuerto;
 
 --
 -- 4: Cantidad de pasajeros ausentes en vuelos del 2019 (v_impresion_lista_pasajeros)
@@ -105,6 +112,7 @@ order by q1.fecha_hora_llegada;
 --
 -- 5: Cuantos vuelos de carga y comercial hay en el momento (t_ubicacion)
 --
+
 
 --
 -- 6: Obtener la información de pasajeros para id_vuelo = 601
