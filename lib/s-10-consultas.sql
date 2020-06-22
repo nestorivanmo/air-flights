@@ -19,10 +19,9 @@ join (
   where a.es_comercial = 1
 ) q1
 on lp.id_vuelo = q1.id_vuelo
-group by lp.id_vuelo
-having q1.fecha_hora_salida between to_date('1/1/2016', 'dd/mm/yyyy')
+where q1.fecha_hora_salida between to_date('1/1/2016', 'dd/mm/yyyy')
 and  to_date('31/1/2016', 'dd/mm/yyyy')
-order by q1.fecha_hora_salida;
+group by lp.id_vuelo;
 
 --
 -- 2: Aumento del 10% en el sueldo a los empleados que hayan volado en más de 100
