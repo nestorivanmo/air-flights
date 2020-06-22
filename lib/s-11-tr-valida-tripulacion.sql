@@ -58,9 +58,6 @@ v_es_carga number;
 v_es_comercial number;
 v_clave_puesto varchar2(50);
 v_cantidad_tripulantes number;
-cursor cur_empleados is
-  select * from tripulacion
-  where id_vuelo = id_vuelo;
 begin
   v_clave_puesto := fn_obtener_clave_puesto_asignado(id_empleado);
   v_cantidad_tripulantes := fn_contar_puestos(v_clave_puesto, id_vuelo);
