@@ -45,16 +45,16 @@ order by lp.id_vuelo;
 --q3: empleados que tengan arriba de 5,000
 
 --algebra relacional: q1 U q3
-select e.nombre, count(*) as num_vuelos
+select e.id_empleado, e.nombre, e.puntos, (
+  select nombre
+  from puesto_asignado
+  where id_puesto_asignado = e.id_puesto_asignado
+) as nombre_puesto, count(*) as num_vuelos
 from empleado e
 join tripulacion t on t.id_empleado = e.id_empleado
-group by e.nombre
-having (
-  select count(*)
-  from empleado e
-  join tripulacion t on t.id_empleado = e.id_empleado;
-) > 100;
+group by e.id_empleado, e.nombre, e.puntos, nombre_puesto; 
 
+/*
 --q3 empleados que tengan arriba de 5,000
 select e.id_empleado,e.nombre,e.ap_paterno,e.ap_materno,
 	e.puntos,
@@ -64,6 +64,7 @@ select e.id_empleado,e.nombre,e.ap_paterno,e.ap_materno,
 from empleado e
 where e.puntos > 5000
 order by e.nombre;
+*/
 
 
 --
