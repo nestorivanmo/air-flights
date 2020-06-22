@@ -15,7 +15,8 @@ create table avion(
     es_carga                    number(1,0) not null,
     es_comercial                number(1,0) not null,
     constraint avion_pk primary key(id_avion),
-    constraint av_matricula_uk unique(matricula)
+    constraint av_matricula_uk unique(matricula),
+    constraint av_carga_comercial_chk check(es_carga = 1 or es_comercial = 1)
 );
 
 --
