@@ -2,14 +2,12 @@
 --@Fecha creación:  15/06/2020
 --@Descripción:     Script con consultas a la base de datos.
 
-connect em_proy_admin/ema;
+  connect em_proy_admin/ema;
 
 --
 -- 1: Cantidad de pasajeros que viajaron con air-flights en enero del 2016
 --
-/*
-  id_vuelo | ciudad_origen | ciudad_destinto | num_pasajeros
-*/
+--subquerys, inner join, subconsultas 
 select lp.id_vuelo, (
 		select nombre
 		from aeropuerto 
@@ -37,11 +35,9 @@ order by lp.id_vuelo;
 -- 2: Aumento del 10% en el sueldo a los empleados que hayan volado en más de 30
 -- vuelos y  que tenga arriba de 70 puntos
 --
-/*
-  id_empleado | nombre | ap_paterno | ap_materno | puntos | nombre_puesto | num_vuelos
-*/
---q1: empleados que tengan más de 30 vuelos 
---q3: empleados que tengan arriba de 70
+--algebra relacional (union), subconsultas, having,groupby
+--
+
 select e.id_empleado, e.nombre, e.apellido_paterno, e.apellido_materno, e.puntos,
   count(*) as num_vuelos, (
     select nombre from puesto_asignado where id_puesto_asignado = e.id_puesto_asignado
@@ -66,6 +62,7 @@ having e.puntos > 70 and count(*) > 30;
 -- 3: Seleccionar el aeropuerto de origen que tenga la mayor cantidad de vuelos
 -- de carga y que tenga convenio con air flights usando la tabla_externa.
 --
+--subconsulta, externa, groupby
 select max(q1.num_vuelos) as max_vuelos
 from aeropuerto_ext aex
 join (
@@ -81,7 +78,7 @@ on q1.id_aeropuerto = aex.id_aeropuerto;
 --
 -- 4: Cantidad de pasajeros ausentes en vuelos del 2019 (v_impresion_lista_pasajeros)
 -- 
-
+--natural join,subquery,funciones agreacion
 select q1.id_vuelo,
   (
     q1.num_pasajeros - (
@@ -93,9 +90,9 @@ from (
     (ac.num_ordinarios+ac.num_vip+ac.num_discapacitados) as num_pasajeros 
     from vuelo v
     join avion a
-    on a.id_avion = v.id_avion
+    using(id_avion)
     join avion_comercial ac
-    on ac.id_avion = a.id_avion
+    using (id_avion)
     where a.es_comercial = 1 and 
     v.fecha_hora_llegada 
     between to_date('1/1/2019', 'dd/mm/yyyy')
@@ -112,5 +109,13 @@ order by q1.fecha_hora_llegada;
 --
 -- 6: Obtener la información de pasajeros para id_vuelo = 601
 --
+-- Vistas, sinónimos,
 prompt conectando como invitado;
 connect em_proy_invitado/emi;
+connect em_proy_invitado/emi;
+ select *  
+from v_impresion_equipaje vie
+join v_impresion_lista_pasajeros vlp
+on vie.folio = vlp.folio_pase_abordar
+where vlp.numero_vuelo = (
+    select v.numero_vuelo from em_proy_admin.vuelo v where v.id_vuelo=601);
