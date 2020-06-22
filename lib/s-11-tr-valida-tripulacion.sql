@@ -41,7 +41,7 @@ end;
 show errors;
 
 create or replace procedure sp_evaluacion(
-  p_cantidad_maxima in number, p_cantidad_actual in number, p_clave in varhchar2
+  p_cantidad_maxima in number, p_cantidad_actual in number, p_clave in varchar2
 ) is 
 begin
   if p_cantidad_actual > p_cantidad_maxima then
@@ -73,7 +73,7 @@ begin
   on v.id_avion = a.id_avion
   where v.id_vuelo = id_vuelo;
   case
-    when es_carga = 1 and es_comercial = 1 then
+    when v_es_carga = 1 and v_es_comercial = 1 then
       case v_clave_puesto
         when 'PIL' then
           sp_evaluacion(1, v_cantidad_tripulantes, v_clave_puesto);
@@ -86,7 +86,7 @@ begin
         when 'SOB' then
           sp_evaluacion(3, v_cantidad_tripulantes, v_clave_puesto);
       end case;
-    when es_carga = 1 and es_comercial = 0 then
+    when v_es_carga = 1 and v_es_comercial = 0 then
       case v_clave_puesto
         when 'PIL' then
           sp_evaluacion(1, v_cantidad_tripulantes, v_clave_puesto);
@@ -99,7 +99,7 @@ begin
         when 'SOB' then
           raise_application_error(-20002, 'No se puede insertar ' || v_clave_puesto || ' en este tipo de vuelo');
       end case;
-    when es_carga = 0 and es_comercial = 1 then
+    when v_es_carga = 0 and v_es_comercial = 1 then
       case v_clave_puesto
         when 'PIL' then
           sp_evaluacion(1, v_cantidad_tripulantes, v_clave_puesto);
