@@ -120,8 +120,8 @@ order by q1.fecha_hora_llegada;
 -- Vistas, sinónimos,
 prompt conectando como invitado;
 connect em_proy_invitado/emi;
-connect em_proy_invitado/emi;
- select *  
+
+select *  
 from v_impresion_equipaje vie
 join v_impresion_lista_pasajeros vlp
 on vie.folio = vlp.folio_pase_abordar
