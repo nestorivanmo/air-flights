@@ -5,7 +5,7 @@ cursor cur_vuelos is
   from vuelo v
   join avion a
   on a.id_avion = v.id_avion
-  and a.es_comercial = 1;
+  where a.es_comercial = 1;
 v_stmt varchar2(400);
 v_peso number;
 v_counter number;
