@@ -34,35 +34,27 @@ group by lp.id_vuelo, q1.id_aeropuerto_origen, q1.id_aeropuerto_destino
 order by lp.id_vuelo;
 */
 --
--- 2: Aumento del 10% en el sueldo a los empleados que hayan volado en más de 100
--- vuelos y que los vuelos no hayan sido cancelados o que tenga arriba de 5000 puntos
+-- 2: Aumento del 10% en el sueldo a los empleados que hayan volado en más de 30
+-- vuelos y  que tenga arriba de 70 puntos
 --
 /*
   id_empleado | nombre | ap_paterno | ap_materno | puntos | nombre_puesto | num_vuelos
 */
---q1: empleados que tengan más de 100 vuelos
---q2: q1 - vuelos cancelados ?  
---q3: empleados que tengan arriba de 5,000
-
-/*s
---algebra relacional: q1 U q3
-select e.id_empleado, e.nombre, count(*) as num_vuelos
+--q1: empleados que tengan más de 30 vuelos 
+--q3: empleados que tengan arriba de 70
+select e.id_empleado, e.nombre, e.apellido_paterno, e.apellido_materno, e.puntos,
+  count(*) as num_vuelos
 from empleado e
-join tripulacion t
-on t.id_empleado = e.id_empleado
-group by e.id_empleado, e.nombre
-having count(*) > 20;
-/*
---q3 empleados que tengan arriba de 5,000
+join tripulacion t on t.id_empleado = e.id_empleado
+group by e.id_empleado, e.nombre, e.apellido_paterno, e.apellido_materno, e.puntos
+having count(*) > 30
+union
 select e.id_empleado,e.nombre,e.apellido_paterno,e.apellido_materno,
-	e.puntos,
-	(select nombre from puesto_asignado
-	where id_puesto_asignado = e.id_puesto_asignado) as nombre_puesto
+	e.puntos, count(*) as num_vuelos
 from empleado e
-where e.puntos > 90
-order by e.nombre;
-*/
-
+join tripulacion t on t.id_empleado = e.id_empleado
+group by e.id_empleado, e.nombre, e.apellido_paterno, e.apellido_materno, e.puntos
+having e.puntos > 70;
 
 --
 -- 3: Cantidad de aeroupuertos que tengan convenio con air-flights (usando t ext)
