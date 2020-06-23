@@ -4,7 +4,7 @@
 set serveroutput on;
 
 create or replace trigger tr_ubicaciones_log 
-after insert or update or delete on t_ubicacion
+after update or delete on t_ubicacion
 for each row
 begin
   insert into ubicaciones_log(id_ubicaciones_log, id_vuelo, latitud,
