@@ -109,8 +109,8 @@ order by q1.fecha_hora_llegada;
 --
 -- 5: Cuantos vuelos de carga y comercial hay en el momento (t_ubicacion)
 --
-select t.id_ubicacion, t.latitud, t.longitud, t.fecha_hora, lpq.id_lista_pasajeros,
-  lpa.id_lista_paquetes
+select t.id_ubicacion, t.latitud, t.longitud, t.fecha_hora, v.id_vuelo, 
+  lpa.id_lista_pasajeros, lpq.id_lista_paquetes
 from t_ubicacion t
 join vuelo v 
 on v.id_vuelo = t.id_vuelo
@@ -118,8 +118,8 @@ left join lista_paquetes lpq
 on lpq.id_vuelo = v.id_vuelo
 left join lista_pasajeros lpa
 on lpa.id_vuelo = v.id_vuelo
-where to_char(t.fecha_hora, 'YYYY/MM/DD') = to_char(sysdate, 'YYYY/MM/DD');
-
+where to_char(t.fecha_hora, 'YYYY/MM/DD') = to_char(sysdate, 'YYYY/MM/DD')
+order by t.id_ubicacion;
 
 --
 -- 6: Obtener la información de pasajeros para id_vuelo = 601
