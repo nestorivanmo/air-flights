@@ -3,7 +3,7 @@
 --@Descripción:     Función para determinar si un vuelo existe.
 set serverouput on;
 
-crete or replace function fx_checa_vuelo( 
+create or replace function fx_checa_vuelo( 
   p_id_aeropuerto_origen in number, p_id_aeropuerto_destino in number,
   p_fecha_hora_salida in date, p_numero_vuelo in varchar2
 ) return number is
