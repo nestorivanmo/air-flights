@@ -87,7 +87,6 @@ create or replace synonym v_impresion_lista_pasajeros for
     em_proy_admin.v_impresion_lista_pasajeros;
 
 -----
-/*
 prompt conectando como usuario em_proy_admin para sinónimos privados en prefijos de tablas;
 connect em_proy_admin/ema;
 
@@ -100,13 +99,11 @@ cursor cur_admin_tables is
 stmt varchar2(200);
 begin
     for r in cur_admin_tables loop
-        stmt := 'create or replace synonym ' 
-            || 'XX_'
-            || r.table_name
-            || ' for em_proy_admin.r.table_name';
+        stmt := 'create or replace synonym XX_'
+            || r.table_name || ' for em_proy_admin.'
+            || r.table_name;
         execute immediate stmt;
     end loop;
 end;
 /
 show errors;
-*/
