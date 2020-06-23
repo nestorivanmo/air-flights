@@ -12,7 +12,7 @@ Casos de prueba:
 -- Prueba 1: update
 declare
 v_query varchar2(500);
-v_id_ubicacion := 1;
+v_id_ubicacion number:= 1;
 v_latitud number := 31.12194021;
 v_longitud number := 107.518547;
 v_fecha_hora date := to_date('23/06/2020 11:11:11','dd/mm/yyyy HH24:MI:SS');
@@ -28,12 +28,11 @@ begin
   where id_vuelo = v_id_vuelo;
   v_query := 'update t_ubicacion
     set latitud = :latitud,
-    set longitud = :longitud,
-    set fecha_hora = :fecha_hora
-    where id_vuelo = :id_vuelo and id_ubicacion = :id_ubicacion
+    longitud = :longitud,
+    fecha_hora = :fecha_hora
+    where id_vuelo = 3666 and id_ubicacion = 1
   ';
-  execute immediate v_query using v_latitud, v_longitud, v_fecha_hora, 
-    v_id_vuelo, v_id_ubicacion;
+  execute immediate v_query using v_latitud, v_longitud, v_fecha_hora;
   select count(*)
   into v_counter_new
   from ubicaciones_log
