@@ -53,3 +53,5 @@ prompt cargando datos tripulacion;
 start savingdata/tripulacion.sql
 prompt cargando datos equipaje;
 start savingdata/equipaje.sql
+prompt cargando datos en t_ubicacion;
+start savingdata/t_ubicacion;
