@@ -7,9 +7,16 @@ create or replace function fx_obtener_cursor_tipo_aviones(
 ) return sys_refcursor is
   v_cursor_aviones sys_refcursor;
 begin
-  open v_cursor_aviones for
-    'select id_avion,es_carga,es_comercial from avion where es_carga = ' || p_es_carga || ' and es_comercial = ' 
-    || p_es_comercial;
+  if p_es_carga = 1 and p_es_comercial = 0 then
+    open v_cursor_aviones for
+    'select id_avion,es_carga,es_comercial from avion where es_carga = 1';
+  elsif p_es_carga = 0 and p_es_comercial = 1 then
+    open v_cursor_aviones for
+    'select id_avion,es_carga,es_comercial from avion where es_comercial = 1';
+  else
+    open v_cursor_aviones for
+    'select id_avion,es_carga,es_comercial from avion where es_carga = 1 and es_comercial = 1';
+  end if;
   return v_cursor_aviones;
 end;
 / 
