@@ -2,7 +2,7 @@
 --@Fecha creación:  15/06/2020
 --@Descripción:     Script con consultas a la base de datos.
 
-  connect em_proy_admin/ema;
+connect em_proy_admin/ema;
 
 --
 -- 1: Cantidad de pasajeros que viajaron con air-flights en enero del 2016
@@ -37,7 +37,6 @@ order by lp.id_vuelo;
 --
 --algebra relacional (union), subconsultas, having,groupby
 --
-
 select e.id_empleado, e.nombre, e.apellido_paterno, e.apellido_materno, e.puntos,
   count(*) as num_vuelos, (
     select nombre from puesto_asignado where id_puesto_asignado = e.id_puesto_asignado
@@ -107,16 +106,22 @@ from (
 ) q1
 order by q1.fecha_hora_llegada;
 
-
-
 --
 -- 5: Cuantos vuelos de carga y comercial hay en el momento (t_ubicacion)
 --
-prompt consulta 5;
-select count(*) from t_ubicacion;
+select t.id_ubicacion, t.latitud, t.longitud, t.fecha_hora, lpq.id_lista_pasajeros,
+  lpa.id_lista_paquetes
+from t_ubicacion t
+join vuelo v 
+on v.id_vuelo = t.id_vuelo
+left join lista_paquetes lpq
+on lpq.id_vuelo = v.id_vuelo
+left join lista_pasajeros lpa
+on lpa.id_vuelo = v.id_vuelo
+where to_char(t.fecha_hora, 'YYYY/MM/DD') = to_char(sysdate, 'YYYY/MM/DD');
 
 
-  --
+--
 -- 6: Obtener la información de pasajeros para id_vuelo = 601
 --
 -- Vistas, sinónimos,
