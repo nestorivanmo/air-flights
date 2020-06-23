@@ -20,7 +20,7 @@ v_asiento varchar2(5);
 begin
   --obteniendo el id_pasajero
   v_pasajero_presente := fx_checa_pasajero(p_curp);
-  dbms_output.put_line('Pasajero presente ?: ' || v_pasajero_presente);
+  
   if v_pasajero_presente = 0 then
     --insertando al pasajero en la BD en caso de que no exista
     v_insert_stmt := 'insert into pasajero (id_pasajero, nombre, apellido_paterno,
@@ -32,13 +32,13 @@ begin
     execute immediate v_insert_stmt using p_nombre, p_apellido_paterno, 
       p_apellido_materno, p_email, p_fecha_nacimiento, p_curp;
     v_id_pasajero := pasajero_seq.currval;
-    dbms_output.put_line('Insertando nuevo pasajero con id: ' || v_id_pasajero);
+
   elsif v_pasajero_presente = 1 then
     select id_pasajero
     into v_id_pasajero
     from pasajero
     where curp = p_curp;
-    dbms_output.put_line('Id del pasajero a generar: ' || v_id_pasajero);
+
   end if;
   --insertando en pase de abordar
   v_folio := dbms_random.string('U', 4) || '-' || trunc(dbms_random.value(10000, 99999),0);
@@ -49,11 +49,11 @@ begin
     )';
   execute immediate v_insert_pase_abordar_stmt using v_folio, sysdate, 
     v_id_pasajero;
-  dbms_output.put_line('Insertó en pase de abordar con datos: ' || v_folio || ', ' || v_id_pasajero);
+
   --insertando al usuario en la lista de pasajeros del vuelo indicado
   v_id_vuelo := fx_checa_vuelo(p_id_origen, p_id_destino, p_fecha_hora_salida,
     p_num_vuelo);
-  dbms_output.put_line('Id del vuelo a abordar: ' || v_id_vuelo);
+
   --insertando en lista pasajeros
   v_insert_stmt := 'insert into lista_pasajeros(
       id_lista_pasajeros, id_vuelo, id_pase_abordar, asiento, pasajero_presente, 
@@ -66,7 +66,6 @@ begin
   v_asiento := dbms_random.string('U',1) || '-' || trunc(dbms_random.value(1,10), 0); --U: random upper case letter
   execute immediate v_insert_stmt using v_id_vuelo, pase_abordar_seq.currval,
     v_asiento, 0, p_atencion_especial;
-  dbms_output.put_line('Insertó en lista pasajeros');
 end;
 /
 show errors;
