@@ -24,7 +24,7 @@ exception
 end;
 /
 show errors;
-/*
+
 declare
   v_curp varchar2(18);
   v_pasajero_presente number;
@@ -35,15 +35,14 @@ begin
   v_curp := 'ROPP846918COTHVD95';
   v_pasajero_presente := fx_checa_pasajero(v_curp);
   if v_pasajero_presente = 0 then
-    dbms_output.put_line('Prueba 1 inválida: el pasajaero sí existe');
+    dbms_output.put_line('Prueba 2 inválida: el pasajaero sí existe');
   elsif v_pasajero_presente = 1 then
-    dbms_output.put_line('Prueba 1 válida');
+    dbms_output.put_line('Prueba 2 válida');
   end if;
 exception
   when e_registered_passenger then
-    dbms_output.put_line('Prueba 1 inválida: pasajero registrado más de una vez');
+    dbms_output.put_line('Prueba 2 inválida: pasajero registrado más de una vez');
   raise;
 end;
 /
 show errors;
-*/
