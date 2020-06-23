@@ -7,6 +7,7 @@ create or replace trigger tr_ubicaciones_log
 after update or delete on t_ubicacion
 for each row
 begin
+  dbms_output.put_line('Ejecutado trigger');
   insert into ubicaciones_log(id_ubicaciones_log, id_vuelo, latitud,
     longitud, fecha_hora)
   values(ubicaciones_log_seq.nextval, :old.id_vuelo, :old.latitud,
