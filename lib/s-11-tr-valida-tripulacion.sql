@@ -4,7 +4,7 @@
 set serveroutput on;
 
 create or replace function fn_obtener_clave_puesto_asignado(
-  p_id_empleado in number 
+  p_id_empleado in number
 )
 return varchar2 is
 v_clave varchar2(5);
