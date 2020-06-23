@@ -2,8 +2,6 @@
 --@Fecha creación:  15/06/2020
 --@Descripción:     Escenarios con usos de tablas externas.
 
-whenever sqlerror exit;
-drop table aeropuerto_ext;
 ---
 --- Configuracion previa
 ---
