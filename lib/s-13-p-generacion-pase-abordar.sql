@@ -17,6 +17,9 @@ v_id_pasajero number;
 v_folio varchar2(10);
 v_id_vuelo number;
 v_asiento varchar2(5);
+e_nonexistent_flight exception;
+pragma
+exception_init(e_nonexistent_flight, -20004);
 begin
   --obteniendo el id_pasajero
   v_pasajero_presente := fx_checa_pasajero(p_curp);
