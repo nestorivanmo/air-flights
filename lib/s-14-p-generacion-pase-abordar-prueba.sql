@@ -21,7 +21,7 @@ v_curp varchar2(18) := 'ROGM771105GRXUKI43';
 v_id_aeropuerto_origen number := 798;
 v_id_aeropuerto_destino number := 796;
 v_fecha_hora_salida date := to_date('2016-08-12 19:11:44', 'YYYY/MM/DD HH24:MI:SS');
-v_num_vuelo varchar2(8) := 'WOU-7593';;
+v_num_vuelo varchar2(8) := 'WOU-7593';
 v_atencion_especial varchar2(300) := 'lorem ipsum';
 v_nuevo_pasajero_registrado number;
 v_id_vuelo number;
@@ -29,20 +29,18 @@ v_id_pasajero number;
 v_id_pase_abordar number;
 v_id_lista_pasajeros number;
 begin
-  --buscando el id_vuelo al que el usuario quiere abordar
-  v_id_vuelo := fx_checa_vuelo(v_id_aeropuerto_origen, v_id_aeropuerto_destino,
-    v_fecha_hora_salida, v_num_vuelo);
   --generando pase de abordar con el procedimiento almacenado
   sp_genera_pase_abordar(v_nombre, v_apellido_paterno, v_apellido_materno,
     v_email, v_fecha_nacimiento, v_curp, v_id_aeropuerto_origen, 
     v_id_aeropuerto_destino, v_fecha_hora_salida, v_num_vuelo, 
     v_atencion_especial);
-  --comprobando
-  select id_pasajero 
-  into v_id_pasajero 
-  from pasajero 
+  --comprobando que se insertó el pasajero
+  select id_pasajero
+  into v_id_pasajero
+  from pasajero
   where curp = v_curp;
-
+  dbms_output.put_line('SE ENCONTRÓ PASAJERO CON ID: ' || v_id_pasajero || ' Y CURP: ' || v_curp);
+  --comprobando que se haya insertado en pase de abordar
   select id_pase_abordar
   into v_id_pase_abordar
   from pase_abordar
@@ -50,13 +48,18 @@ begin
   and fecha = (
     select max(fecha)
     from pase_abordar
-    where id_pase_abordar = v_id_pasajero
+    where id_pasajero = v_id_pasajero
   );
-
+  dbms_output.put_line('SE ENCONTRÓ PASE DE ABORDAR CON ID: ' || v_id_pase_abordar);
+  --comprobando que se haya insertado en lista pasajeros
+  v_id_vuelo := fx_checa_vuelo(v_id_aeropuerto_origen, v_id_aeropuerto_destino,
+    v_fecha_hora_salida, v_num_vuelo);
   select id_lista_pasajeros
   into v_id_lista_pasajeros
   from lista_pasajeros
-  where id_vuelo = v_id_vuelo and id_pase_abordar = v_id_pase_abordar;
+  where id_vuelo = v_id_vuelo
+  and id_pase_abordar = v_id_pase_abordar;
+  dbms_output.put_line('SE ENCONTRÓ LISTA PASAJEROS CON ID: ' || v_id_lista_pasajeros);
   dbms_output.put_line('Prueba 1 válida');
 exception
   when NO_DATA_FOUND then
