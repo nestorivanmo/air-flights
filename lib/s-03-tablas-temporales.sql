@@ -14,8 +14,9 @@ create global temporary table t_ubicacion(
     longitud                    number(10,7) not null,
     fecha_hora                  date not null,
     id_vuelo                    number(10,0) not null,
-    constraint t_ubicacion_pk primary key(id_ubicacion),
+    constraint t_ubicacion_pk primary key(id_ubicacion)
+    /*
+    ,
     constraint vuelo_id_vuelo_fk foreign key(id_vuelo)
-    references vuelo(id_vuelo)
-);
-on commit preserve rows;
+    references vuelo(id_vuelo)*/
+)on commit preserve rows;
