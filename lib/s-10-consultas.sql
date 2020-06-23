@@ -112,9 +112,11 @@ order by q1.fecha_hora_llegada;
 --
 -- 5: Cuantos vuelos de carga y comercial hay en el momento (t_ubicacion)
 --
+prompt consulta 5;
+select count(*) from t_ubicacion;
 
 
---
+  --
 -- 6: Obtener la información de pasajeros para id_vuelo = 601
 --
 -- Vistas, sinónimos,
