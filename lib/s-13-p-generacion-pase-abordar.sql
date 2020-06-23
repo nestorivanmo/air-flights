@@ -52,7 +52,7 @@ begin
   --insertando en lista pasajeros
   v_insert_stmt := 'insert into lista_pasajeros(
       id_lista_pasajeros, id_vuelo, id_pase_abordar, asiento, pasajero_presente, 
-      atencion_espcial
+      atencion_especial
     ) values (
       lista_pasajeros_seq.nextval, :id_vuelo, :id_pase_abordar, :asiento, 
       :pasajero_presente, :atencion_especial

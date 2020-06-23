@@ -1,7 +1,7 @@
 --@Autor(es):       Hector Espo Rojas, Néstor Martínez Ostoa
 --@Fecha creación:  22/06/2020
 --@Descripción:     Prueba para el procedimiento que simula la generación de pases de abordar. 
-set serverouput on;
+set serveroutput on;
 
 /*
 Casos de prueba:
@@ -38,17 +38,19 @@ begin
   --datos del vuelo con id 255
   v_id_aeropuerto_origen := 798;
   v_id_aeropuerto_destino := 796;
-  v_fecha_hora_salida := to_date('2016-08-12 19:11:44', 'YYYY/MM/DD HH24:MI:SS');
+  v_fecha_hora_salida := to_date('2016-08-12 19:11:44', 'YYYY/MM/DD HH24:MI:SS'
+  );
   v_num_vuelo := 'WOU-7593';
   v_atencion_especial := 'lorem ipsum dolores et al';
-  v_id_vuelo := fx_checa_vuelo(v_id_aeropuerto_origen, v_id_aeropuerto_destino
+  v_id_vuelo := fx_checa_vuelo(v_id_aeropuerto_origen, v_id_aeropuerto_destino,
     v_fecha_hora_salida, v_num_vuelo);
   --generando pase de abordar
   sp_genera_pase_abordar(v_nombre, v_apellido_paterno, v_apellido_materno,
     v_email, v_fecha_nacimiento, v_curp, v_id_aeropuerto_origen, 
-    v_id_aeropuerto_destino, v_fecha_hora_salida, v_num_vuelo, v_atencion_especial);
+    v_id_aeropuerto_destino, v_fecha_hora_salida, v_num_vuelo, 
+    v_atencion_especial);
   --comprobando
-  v_id_pasajero := fx_checa_pasajero(v_curp);
+  select id_pasajero into v_id_pasajero from pasajero where curp = v_curp;
   select id_pase_abordar
   into v_id_pase_abordar
   from pase_abordar
@@ -58,11 +60,13 @@ begin
     from pase_abordar
     where id_pase_abordar = v_id_pasajero
   );
+  
   select id_lista_pasajeros
   into v_id_lista_pasajeros
   from lista_pasajeros
   where id_vuelo = v_id_vuelo and id_pase_abordar = v_id_pase_abordar;
-  dbms_output.put_line('Prueba 1 válida');
+  
+  dbms_output.put_line('Prueba 1 válida'|| v_id_vuelo||','||v_id_pase_abordar||','||v_id_pasajero);
 exception
   when NO_DATA_FOUND then
     dbms_output.put_line('Prueba 1 inválida: no se encontró la información deseada.');
