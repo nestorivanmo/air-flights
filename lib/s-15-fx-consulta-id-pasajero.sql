@@ -1,12 +1,15 @@
 --@Autor(es):       Hector Espino Rojas, Néstor Martínez Ostoa
 --@Fecha creación:  22/06/2020
 --@Descripción:     Función para determinar si un pasajero existe en la BD.
-set serverouput on;
+set serveroutput on;
 
-crete or replace function fx_checa_pasajero(
+create or replace function fx_checa_pasajero(
   p_curp in varchar2
 ) return number is
 v_pasajero_presente number;
+e_registered_passenger exception;
+pragma
+exception_init(e_registered_passenger, -20005);
 begin
   v_pasajero_presente := 0;
   select count(*)
@@ -14,7 +17,7 @@ begin
   from pasajero
   where curp = v_curp;
   if v_pasajero_presente > 1 then
-    raise_application_error(20004, 'Pasajero registrado más de una vez en la base de datos');
+    raise_application_error(e_registered_passenger, 'Pasajero registrado más de una vez en la base de datos');
   end if;
   return v_pasajero_presente;
 end;

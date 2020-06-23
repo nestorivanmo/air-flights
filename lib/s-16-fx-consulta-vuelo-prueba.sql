@@ -9,7 +9,6 @@ v_id_aeropuerto_destino number;
 v_fecha_hora_salida date;
 v_numero_vuelo varchar2(8);
 v_id_vuelo number;
-
 e_nonexistent_flight exception;
 pragma
 exception_init(e_nonexistent_flight, -20004);
@@ -26,7 +25,6 @@ begin
   else
     dbms_output.put_line('Prueba fallida, id_vuelo incorrecto' || v_id_vuelo);
   end if;
-
 exception
   when e_nonexistent_flight then
     dbms_output.put_line('Prueba fallida, no debería lanzar excepción'|| v_id_vuelo);
@@ -45,7 +43,6 @@ v_id_vuelo number;
 e_nonexistent_flight exception;
 pragma
 exception_init(e_nonexistent_flight, -20004);
-
 begin
   dbms_output.put_line('comenzando prueba 2');
   v_id_aeropuerto_origen := 10;

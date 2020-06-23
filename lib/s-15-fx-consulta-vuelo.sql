@@ -12,7 +12,6 @@ v_id_vuelo number;
 e_nonexistent_flight exception;
 pragma
 exception_init(e_nonexistent_flight, -20004);
-
 begin
   select id_vuelo
   into v_id_vuelo
