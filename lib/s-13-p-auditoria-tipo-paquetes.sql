@@ -3,6 +3,9 @@
 --@Descripción:     Procedimiento para hacer auditorías sobre tipos de paquetes.
 set serveroutput on;
 
+CREATE OR REPLACE DIRECTORY CTEST AS '/tmp/proyecto-final/auditoria'; 
+GRANT READ ON DIRECTORY CTEST TO PUBLIC;
+
 create or replace procedure sp_auditoria_tipo_paquete(
   p_clave_paquete in varchar2,
   p_fecha_auditoria in date
@@ -48,29 +51,33 @@ cursor cur_vuelos is
   group by v.id_vuelo,v.fecha_hora_salida,v.fecha_hora_llegada,sv.descripcion,
    v.id_avion,ao.nombre, ad.nombre,v.numero_vuelo
   order by num_paquetes;
+--declaración para escritura de archivos
+output_file  UTL_FILE.FILE_TYPE; 
 begin
-  /*
-    id_vuelo | origen | destino | hora_salida | hora_llegada | id_avion | num_paquetes
-  */
   --obteniendo todos los aviones de carga (incluyendo a los híbridos)
   v_es_carga_cur := 1;
   v_es_comercial_cur := 0;
   cur_aviones := fx_obtener_cursor_tipo_aviones(v_es_carga_cur, 
   v_es_comercial_cur);
-  
+  --manejo de archivo
+  output_file := UTL_FILE.FOPEN('CTEST', 'auditoria_paquete.txt', 'W');
+  UTL_FILE.PUT_LINE(output_file, '
+    id_vuelo | numero_vuelo | aeropuerto_origen | aeropuerto_destino |
+    fecha_salida | status | id_avion | numero paquetes
+  ');
   for r in cur_vuelos loop
 
     dbms_output.put_line(r.id_vuelo ||','|| r.numero_vuelo
     ||','|| r.aeropuerto_origen 
     ||','|| r.aeropuerto_destino
-    ||','|| to_char(r.fecha_hora_salida,'YYYY/MM/DD') 
+    ||','|| to_char(r.fecha_hora_salida,'YYYY/MM/DD HH24:MI:SS') 
     ||','|| r.descripcion 
     ||','|| r.id_avion  
     ||','||r.num_paquetes);
 
+    UTL_FILE.PUT_LINE(output_file, "test");
   end loop;
- 
-  
+  UTL_FILE.CLOSE(output_file);
 end;
 /
 show errors;
