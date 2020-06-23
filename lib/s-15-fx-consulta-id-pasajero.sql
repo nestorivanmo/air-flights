@@ -15,9 +15,9 @@ begin
   select count(*)
   into v_pasajero_presente
   from pasajero
-  where curp = v_curp;
+  where curp = p_curp;
   if v_pasajero_presente > 1 then
-    raise_application_error(e_registered_passenger, 'Pasajero registrado más de una vez en la base de datos');
+    raise e_registered_passenger;
   end if;
   return v_pasajero_presente;
 end;
