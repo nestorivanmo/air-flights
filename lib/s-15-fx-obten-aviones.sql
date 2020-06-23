@@ -8,7 +8,8 @@ create or replace function fx_obtener_cursor_tipo_aviones(
   v_cursor_aviones sys_refcursor;
 begin
   open v_cursor_aviones for
-    'select * from avion where es_carga = ' || es_carga || ' and es_comercial = ' || es_comercial;
+    'select id_avion,es_carga,es_comercial from avion where es_carga = ' || p_es_carga || ' and es_comercial = ' 
+    || p_es_comercial;
   return v_cursor_aviones;
 end;
 / 
