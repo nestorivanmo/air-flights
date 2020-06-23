@@ -14,7 +14,7 @@ declare
 v_insert_stmt varchar2(500);
 v_latitud number := 31.12194021;
 v_longitud number := 107.518547;
-v_fecha_hora date := to_date('23/06/2020 11:11:11' 'dd/mm/yyyy HH24:MI:SS');
+v_fecha_hora date := to_date('23/06/2020 11:11:11','dd/mm/yyyy HH24:MI:SS');
 v_id_vuelo number := 50000;
 --
 v_counter_old number;
