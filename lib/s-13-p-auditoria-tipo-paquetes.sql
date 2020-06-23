@@ -3,9 +3,12 @@
 --@Descripción:     Procedimiento para hacer auditorías sobre tipos de paquetes.
 set serveroutput on;
 
-CREATE OR REPLACE DIRECTORY CTEST AS '/tmp/proyecto-final/auditoria'; 
-GRANT READ ON DIRECTORY CTEST TO PUBLIC;
+connect sys/system as sysdba;
+prompt creando directorio
+CREATE OR REPLACE DIRECTORY CTEST AS '/tmp/'; 
+grant read, write on directory CTEST to em_proy_admin;
 
+connect em_proy_admin/ema;
 create or replace procedure sp_auditoria_tipo_paquete(
   p_clave_paquete in varchar2,
   p_fecha_auditoria in date
@@ -60,24 +63,20 @@ begin
   cur_aviones := fx_obtener_cursor_tipo_aviones(v_es_carga_cur, 
   v_es_comercial_cur);
   --manejo de archivo
-  output_file := UTL_FILE.FOPEN('CTEST', 'auditoria_paquete.txt', 'W');
-  UTL_FILE.PUT_LINE(output_file, '
-    id_vuelo | numero_vuelo | aeropuerto_origen | aeropuerto_destino |
-    fecha_salida | status | id_avion | numero paquetes
-  ');
+  output_file := UTL_FILE.FOPEN('CTEST', 'auditoria_paquete.csv', 'W');
+  UTL_FILE.PUT_LINE(output_file, 'id_vuelo | numero_vuelo | aeropuerto_origen | aeropuerto_destino | fecha_salida | status | id_avion | numero paquetes');
   for r in cur_vuelos loop
 
-    dbms_output.put_line(r.id_vuelo ||','|| r.numero_vuelo
+    UTL_FILE.PUT_LINE(output_file,
+    r.id_vuelo ||','|| r.numero_vuelo
     ||','|| r.aeropuerto_origen 
     ||','|| r.aeropuerto_destino
     ||','|| to_char(r.fecha_hora_salida,'YYYY/MM/DD HH24:MI:SS') 
     ||','|| r.descripcion 
     ||','|| r.id_avion  
     ||','||r.num_paquetes);
-
-    UTL_FILE.PUT_LINE(output_file, "test");
   end loop;
-  UTL_FILE.CLOSE(output_file);
+  UTL_FILE.FCLOSE(output_file);
 end;
 /
 show errors;
