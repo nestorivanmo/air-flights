@@ -48,3 +48,9 @@ end;
 /
 show errors;
 rollback;
+
+
+/*
+  v_query := 'delete from t_ubicacion
+    where id_vuelo = 3666 and id_ubicacion = 1';
+*/
