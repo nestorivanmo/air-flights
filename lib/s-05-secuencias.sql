@@ -24,9 +24,9 @@ prompt creando t_ubicacion_seq;
 create sequence t_ubicacion_seq
 start with 1 
 increment by 1
-maxvalue 200000
+nomaxvalue
 minvalue 1
-cycle
+nocycle
 cache 30
 noorder;
 
