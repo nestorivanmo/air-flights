@@ -21,8 +21,8 @@ on p.id_pasajero = pa.id_pasajero;
 --
 prompt creando vista v_impresion_lista_pasajeros;
 create or replace view v_impresion_lista_pasajeros(
-    numero_vuelo,folio_pase_abordar,pasajero_presente,atencion_especial,asiento
-) as select numero_vuelo,folio,pasajero_presente,atencion_especial,asiento
+    id_vuelo,numero_vuelo,folio_pase_abordar,pasajero_presente,atencion_especial,asiento
+) as select v.id_vuelo,numero_vuelo,folio,pasajero_presente,atencion_especial,asiento
 from pase_abordar pa
 join lista_pasajeros lp
 on pa.id_pase_abordar = lp.id_pase_abordar

@@ -123,12 +123,11 @@ select count(*) from t_ubicacion;
 prompt conectando como invitado;
 connect em_proy_invitado/emi;
 
-select *  
+select vie.folio,vie.nombre,vie.apellido_paterno,
+vie.apellido_materno,numero as numero_maletas,
+vlp.id_vuelo,vlp.pasajero_presente,vlp.atencion_especial,vlp.asiento
 from v_impresion_equipaje vie
 join v_impresion_lista_pasajeros vlp
 on vie.folio = vlp.folio_pase_abordar
-where vlp.numero_vuelo = (
-    select v.numero_vuelo 
-    from em_proy_admin.vuelo v 
-    where v.id_vuelo=601
-);
+where vlp.id_vuelo = 601
+order by vie.nombre;
