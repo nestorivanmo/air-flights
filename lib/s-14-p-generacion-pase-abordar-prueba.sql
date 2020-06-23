@@ -12,12 +12,12 @@ Casos de prueba:
 */
 --Prueba1
 declare
-v_nombre varchar2(50) := 'Cordie';
-v_apellido_paterno varchar2(50) := 'Lipp';
-v_apellido_materno varchar2(50) := 'Gowdridge';
-v_email varchar2(100) := 'lipp_cordie90@google.com';
-v_fecha_nacimiento date := to_date('1983/11/26', 'YYYY/MM/DD');
-v_curp varchar2(18) := 'OBHH979725GRQUJI56';
+v_nombre varchar2(50) := 'Marco';
+v_apellido_paterno varchar2(50) := 'Romanoff';
+v_apellido_materno varchar2(50) := 'Goddard';
+v_email varchar2(100) := 'marco_rom@google.com';
+v_fecha_nacimiento date := to_date('1977/11/05', 'YYYY/MM/DD');
+v_curp varchar2(18) := 'ROGM771105GRXUKI43';
 v_id_aeropuerto_origen number := 798;
 v_id_aeropuerto_destino number := 796;
 v_fecha_hora_salida date := to_date('2016-08-12 19:11:44', 'YYYY/MM/DD HH24:MI:SS');
