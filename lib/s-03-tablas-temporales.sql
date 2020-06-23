@@ -13,7 +13,6 @@ create table t_ubicacion(
     latitud                     number(10,7) not null,
     longitud                    number(10,7) not null,
     fecha_hora                  date not null,
-    id_avion                    number(10,0) not null,
     id_vuelo                    number(10,0) not null,
     constraint t_ubicacion_pk primary key(id_ubicacion),
     constraint vuelo_id_vuelo_fk foreign key(id_vuelo)
