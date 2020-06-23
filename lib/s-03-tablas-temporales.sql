@@ -8,7 +8,7 @@ whenever sqlerror exit;
 -- Table: T_UBICACION
 --
 prompt creando tabla t_ubicacion;
-create table t_ubicacion(
+create global temporary table t_ubicacion(
     id_ubicacion                number(10,0) not null,
     latitud                     number(10,7) not null,
     longitud                    number(10,7) not null,
@@ -18,3 +18,4 @@ create table t_ubicacion(
     constraint vuelo_id_vuelo_fk foreign key(id_vuelo)
     references vuelo(id_vuelo)
 );
+on commit preserve rows;
