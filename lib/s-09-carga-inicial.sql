@@ -55,3 +55,5 @@ prompt cargando datos equipaje;
 start savingdata/equipaje.sql
 prompt cargando datos en t_ubicacion;
 start savingdata/t_ubicacion;
+prompt haciendo commit;
+commit;
