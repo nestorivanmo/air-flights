@@ -35,6 +35,7 @@ begin
     v_id_aeropuerto_destino, v_fecha_hora_salida, v_num_vuelo, 
     v_atencion_especial);
   --comprobando que se insertó el pasajero
+  dbms_output.put_line('TRATANDO DE SELECCIONAR EL ID DEL PASAJERO...');
   select id_pasajero
   into v_id_pasajero
   from pasajero
