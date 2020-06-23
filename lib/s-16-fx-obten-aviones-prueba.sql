@@ -65,7 +65,6 @@ end;
 /
 show errors;
 
-
 --Prueba3
 declare
   cur_aviones sys_refcursor;
@@ -84,7 +83,7 @@ begin
   loop
   fetch cur_aviones into v_id_avion,v_es_carga,v_es_comercial;
     exit when cur_aviones%notfound;
-    if v_es_comercial = 0 or v_es_carga=0 then
+    if v_es_comercial = 0 or v_es_carga = 0 then
       raise e_invalid_airplane_type;
     end if;
     v_counter := v_counter + 1;
