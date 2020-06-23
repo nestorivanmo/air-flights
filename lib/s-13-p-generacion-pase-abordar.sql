@@ -1,13 +1,13 @@
 --@Autor(es):       Hector Espino Rojas, Néstor Martínez Ostoa
 --@Fecha creación:  22/06/2020
 --@Descripción:     Script que simula la generación de pases de abordar. 
-set serverouput on;
+set serveroutput on;
 
 create or replace procedure sp_genera_pase_abordar (
   p_nombre in varchar2, p_apellido_paterno in varchar2, p_apellido_materno 
    in varchar2, p_email in varchar2, p_fecha_nacimiento in date, 
   p_curp in varchar2, p_id_origen in number, p_id_destino in number, 
-  p_fecha_hora_salida in number, p_num_vuelo in varchar2, p_atencion_especial
+  p_fecha_hora_salida in date, p_num_vuelo in varchar2, p_atencion_especial
   in varchar2
 ) is
 v_pasajero_presente number;
