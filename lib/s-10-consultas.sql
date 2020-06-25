@@ -4,6 +4,7 @@
 
 connect em_proy_admin/ema;
 
+
 --
 -- 1: Cantidad de pasajeros que viajaron con air-flights en enero del 2016
 --
